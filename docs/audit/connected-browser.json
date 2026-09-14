@@ -1,0 +1,186 @@
+[
+  {
+    "requestedWidth": 320,
+    "view": "transactions",
+    "title": "Recette locale — Clair",
+    "width": 320,
+    "scroll": 320,
+    "overflow": [],
+    "scope": [
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction"
+    ],
+    "links": [
+      "/transactions?page=2"
+    ],
+    "text": "clair.\nAccueil\nDépenses\nAssistant\nBudgets\nC\nToutes vos transactions.\n\n106 opérations · toutes périodes\n\nTotaux des opérations affichées sur cette page, hors opérations en attente. Il s’agit de débits et crédits bruts, virements compris.\n\nEUR · Débits comptabilisés\n−1 235 516,38 €\n+2 450,00 € crédités\n10,00 € de mouvements en attente, exclus des totaux\nGBP · Débits comptabilisés\n−20,00 £GB\n+0,00 £GB crédités\nRECHERCHER\nCATÉGORIE\nToutes catégories\n"
+  },
+  {
+    "requestedWidth": 320,
+    "view": "budgets",
+    "title": "Recette locale — Clair",
+    "width": 320,
+    "scroll": 320,
+    "overflow": [],
+    "scope": [],
+    "links": [
+      "/transactions?month=2026-09&category=Groceries&status=booked",
+      "/transactions?month=2026-09&category=Housing&status=booked",
+      "/transactions?month=2026-09&category=Travel&status=booked"
+    ],
+    "text": "clair.\nAccueil\nDépenses\nAssistant\nBudgets\nC\nBudgets mensuels\n\nToutes vos dépenses comptabilisées, converties en EUR. Les opérations en attente et sans conversion disponible sont exclues.\n\nMOIS\nAfficher\nLimites cumulées\n1 400,00 €\nDépenses sous budget\n1 265,50 €\nRestant\n134,50 €\n1 budget(s) dépassé(s)\n\nLes limites se répètent chaque mois. Les modifier change aussi la comparaison des mois passés. Le reste affiché concerne uniquement les catégories "
+  },
+  {
+    "requestedWidth": 320,
+    "view": "abonnements",
+    "title": "Recette locale — Clair",
+    "width": 320,
+    "scroll": 320,
+    "overflow": [],
+    "scope": [],
+    "links": [],
+    "text": "Récurrences de démonstration\nCoût annuel estimé · 2 récurrence(s)\n144,00 €\n100,00 £GB\nStream\n12,00 € par mois\n↑ auparavant 10,00 €\n144,00 €\npar an\nService Annuel\n100,00 £GB par an\n100,00 £GB\npar an\n\nEstimation au dernier montant connu, si les prélèvements continuent. Une récurrence détectée n’est pas une preuve de contrat actif."
+  },
+  {
+    "requestedWidth": 390,
+    "view": "transactions",
+    "title": "Recette locale — Clair",
+    "width": 390,
+    "scroll": 390,
+    "overflow": [],
+    "scope": [
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction"
+    ],
+    "links": [
+      "/transactions?page=2"
+    ],
+    "text": "clair.\nAccueil\nDépenses\nAssistant\nBudgets\nC\nToutes vos transactions.\n\n106 opérations · toutes périodes\n\nTotaux des opérations affichées sur cette page, hors opérations en attente. Il s’agit de débits et crédits bruts, virements compris.\n\nEUR · Débits comptabilisés\n−1 235 516,38 €\n+2 450,00 € crédités\n10,00 € de mouvements en attente, exclus des totaux\nGBP · Débits comptabilisés\n−20,00 £GB\n+0,00 £GB crédités\nRECHERCHER\nCATÉGORIE\nToutes catégories\n"
+  },
+  {
+    "requestedWidth": 390,
+    "view": "budgets",
+    "title": "Recette locale — Clair",
+    "width": 390,
+    "scroll": 390,
+    "overflow": [],
+    "scope": [],
+    "links": [
+      "/transactions?month=2026-09&category=Groceries&status=booked",
+      "/transactions?month=2026-09&category=Housing&status=booked",
+      "/transactions?month=2026-09&category=Travel&status=booked"
+    ],
+    "text": "clair.\nAccueil\nDépenses\nAssistant\nBudgets\nC\nBudgets mensuels\n\nToutes vos dépenses comptabilisées, converties en EUR. Les opérations en attente et sans conversion disponible sont exclues.\n\nMOIS\nAfficher\nLimites cumulées\n1 400,00 €\nDépenses sous budget\n1 265,50 €\nRestant\n134,50 €\n1 budget(s) dépassé(s)\n\nLes limites se répètent chaque mois. Les modifier change aussi la comparaison des mois passés. Le reste affiché concerne uniquement les catégories "
+  },
+  {
+    "requestedWidth": 390,
+    "view": "abonnements",
+    "title": "Recette locale — Clair",
+    "width": 390,
+    "scroll": 390,
+    "overflow": [],
+    "scope": [],
+    "links": [],
+    "text": "Récurrences de démonstration\nCoût annuel estimé · 2 récurrence(s)\n144,00 €\n100,00 £GB\nStream\n12,00 € par mois\n↑ auparavant 10,00 €\n144,00 €\npar an\nService Annuel\n100,00 £GB par an\n100,00 £GB\npar an\n\nEstimation au dernier montant connu, si les prélèvements continuent. Une récurrence détectée n’est pas une preuve de contrat actif."
+  },
+  {
+    "requestedWidth": 768,
+    "view": "transactions",
+    "title": "Recette locale — Clair",
+    "width": 768,
+    "scroll": 753,
+    "overflow": [],
+    "scope": [
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction"
+    ],
+    "links": [
+      "/transactions?page=2"
+    ],
+    "text": "clair.\nTableau de bord\nTransactions\nAssistant\nBudgets\n☀\nClair\n☾\nSombre\n◐\nComme le système\nclient@example.test\nSe déconnecter\nToutes vos transactions.\n\n106 opérations · toutes périodes\n\nTotaux des opérations affichées sur cette page, hors opérations en attente. Il s’agit de débits et crédits bruts, virements compris.\n\nEUR · Débits comptabilisés\n−1 235 516,38 €\n+2 450,00 € crédités\n10,00 € de mouvements en attente, exclus des totaux\nGBP · Débits co"
+  },
+  {
+    "requestedWidth": 768,
+    "view": "budgets",
+    "title": "Recette locale — Clair",
+    "width": 768,
+    "scroll": 753,
+    "overflow": [],
+    "scope": [],
+    "links": [
+      "/transactions?month=2026-09&category=Groceries&status=booked",
+      "/transactions?month=2026-09&category=Housing&status=booked",
+      "/transactions?month=2026-09&category=Travel&status=booked"
+    ],
+    "text": "clair.\nTableau de bord\nTransactions\nAssistant\nBudgets\n☀\nClair\n☾\nSombre\n◐\nComme le système\nclient@example.test\nSe déconnecter\nBudgets mensuels\n\nToutes vos dépenses comptabilisées, converties en EUR. Les opérations en attente et sans conversion disponible sont exclues.\n\nMOIS\nAfficher\nLimites cumulées\n1 400,00 €\nDépenses sous budget\n1 265,50 €\nRestant\n134,50 €\n1 budget(s) dépassé(s)\n\nLes limites se répètent chaque mois. Les modifier change aussi la "
+  },
+  {
+    "requestedWidth": 768,
+    "view": "abonnements",
+    "title": "Recette locale — Clair",
+    "width": 768,
+    "scroll": 768,
+    "overflow": [],
+    "scope": [],
+    "links": [],
+    "text": "Récurrences de démonstration\nCoût annuel estimé · 2 récurrence(s)\n144,00 €\n100,00 £GB\nStream\n12,00 € par mois\n↑ auparavant 10,00 €\n144,00 €\npar an\nService Annuel\n100,00 £GB par an\n100,00 £GB\npar an\n\nEstimation au dernier montant connu, si les prélèvements continuent. Une récurrence détectée n’est pas une preuve de contrat actif."
+  },
+  {
+    "requestedWidth": 1440,
+    "view": "transactions",
+    "title": "Recette locale — Clair",
+    "width": 1440,
+    "scroll": 1425,
+    "overflow": [],
+    "scope": [
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction",
+      "transaction"
+    ],
+    "links": [
+      "/transactions?page=2"
+    ],
+    "text": "clair.\nTableau de bord\nTransactions\nAssistant\nBudgets\n☀\nClair\n☾\nSombre\n◐\nComme le système\nclient@example.test\nSe déconnecter\nToutes vos transactions.\n\n106 opérations · toutes périodes\n\nTotaux des opérations affichées sur cette page, hors opérations en attente. Il s’agit de débits et crédits bruts, virements compris.\n\nEUR · Débits comptabilisés\n−1 235 516,38 €\n+2 450,00 € crédités\n10,00 € de mouvements en attente, exclus des totaux\nGBP · Débits co"
+  },
+  {
+    "requestedWidth": 1440,
+    "view": "budgets",
+    "title": "Recette locale — Clair",
+    "width": 1440,
+    "scroll": 1425,
+    "overflow": [],
+    "scope": [],
+    "links": [
+      "/transactions?month=2026-09&category=Groceries&status=booked",
+      "/transactions?month=2026-09&category=Housing&status=booked",
+      "/transactions?month=2026-09&category=Travel&status=booked"
+    ],
+    "text": "clair.\nTableau de bord\nTransactions\nAssistant\nBudgets\n☀\nClair\n☾\nSombre\n◐\nComme le système\nclient@example.test\nSe déconnecter\nBudgets mensuels\n\nToutes vos dépenses comptabilisées, converties en EUR. Les opérations en attente et sans conversion disponible sont exclues.\n\nMOIS\nAfficher\nLimites cumulées\n1 400,00 €\nDépenses sous budget\n1 265,50 €\nRestant\n134,50 €\n1 budget(s) dépassé(s)\n\nLes limites se répètent chaque mois. Les modifier change aussi la "
+  },
+  {
+    "requestedWidth": 1440,
+    "view": "abonnements",
+    "title": "Recette locale — Clair",
+    "width": 1440,
+    "scroll": 1440,
+    "overflow": [],
+    "scope": [],
+    "links": [],
+    "text": "Récurrences de démonstration\nCoût annuel estimé · 2 récurrence(s)\n144,00 €\n100,00 £GB\nStream\n12,00 € par mois\n↑ auparavant 10,00 €\n144,00 €\npar an\nService Annuel\n100,00 £GB par an\n100,00 £GB\npar an\n\nEstimation au dernier montant connu, si les prélèvements continuent. Une récurrence détectée n’est pas une preuve de contrat actif."
+  }
+]

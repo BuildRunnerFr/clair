@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600&display=swap">
+<style>*{margin:0}body{background:transparent}svg{display:block}</style></head><body>
+<svg id="m" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+ <rect id="fond" width="64" height="64" rx="7" fill="#f3f5f7"/>
+ <text id="g" x="14" y="61" font-family="'Source Serif 4',Georgia,serif" font-weight="600" font-size="92" fill="#1b3a63">c</text>
+ <rect x="45" y="33" width="10" height="10" fill="#4a7fc1"/>
+</svg>
+<script>
+const p=new URLSearchParams(location.search), s=+(p.get("s")||512);
+const m=document.getElementById("m"); m.setAttribute("width",s); m.setAttribute("height",s);
+if(p.get("r")==="0") document.getElementById("fond").setAttribute("rx",0);
+if(p.get("sombre")==="1"){document.getElementById("fond").setAttribute("fill","#16181c");document.getElementById("g").setAttribute("fill","#e9e7e2");}
+</script></body></html>

@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Clair",
+    "slug": "clair",
+    "scheme": "clair",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.clairfinances.app",
+      "associatedDomains": ["applinks:clairfinances.com"]
+    },
+    "android": {
+      "package": "com.clairfinances.app",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [{ "scheme": "https", "host": "clairfinances.com" }],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    },
+    "plugins": ["expo-router", "expo-secure-store"],
+    "experiments": { "typedRoutes": true }
+  }
+}

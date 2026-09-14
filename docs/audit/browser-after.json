@@ -1,0 +1,152 @@
+[
+  {
+    "requestedWidth": 320,
+    "path": "/",
+    "url": "/",
+    "width": 320,
+    "scroll": 320,
+    "title": "Clair — Comprendre ses dépenses",
+    "text": "clair.\nFonctionnalités\nSécurité\nBanques\nPrix\nSe connecter\nCommencer\n\nFINANCES PERSONNELLES\n\nVos dépenses, enfin lisibles",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 320,
+    "path": "/suivi-depenses",
+    "url": "/suivi-depenses",
+    "width": 320,
+    "scroll": 320,
+    "title": "Suivi de dépenses automatique : comment ça marche — Clair",
+    "text": "clair.\nGUIDES\nSe connecter\nCommencer gratuitement\nLe suivi de dépenses automatique, expliqué\n\nUn suivi automatique lit l",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 320,
+    "path": "/login",
+    "url": "/login",
+    "width": 320,
+    "scroll": 320,
+    "title": "Connexion",
+    "text": "clair.\nVos finances, au calme.\n\nConnectez-vous en un geste, ou avec votre adresse email.\n\nContinuer avec Google\nContinue",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 320,
+    "path": "/banc/salarie-regulier?vue=1&l=320",
+    "url": "/banc/salarie-regulier",
+    "width": 320,
+    "scroll": 320,
+    "title": "Clair — Finances personnelles",
+    "text": "clair.\nAccueil\nDépenses\nAssistant\nBudgets\nE\nBonjour Camille.\nFILTRER\nseptembre 2026\nSOLDES DES COMPTES\nMis à jour le 15 se",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 320,
+    "path": "/banc/libelles-extremes?vue=1&l=320",
+    "url": "/banc/libelles-extremes",
+    "width": 320,
+    "scroll": 320,
+    "title": "Clair — Finances personnelles",
+    "text": "clair.\nAccueil\nDépenses\nAssistant\nBudgets\nE\nBonjour Camille.\n!\nInsurance\nDépassé de 284,57 € — 1 284,57 € sur 1 000,00 € b",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 390,
+    "path": "/",
+    "url": "/",
+    "width": 390,
+    "scroll": 390,
+    "title": "Clair — Comprendre ses dépenses",
+    "text": "clair.\nFonctionnalités\nSécurité\nBanques\nPrix\nSe connecter\nCommencer\n\nFINANCES PERSONNELLES\n\nVos dépenses, enfin lisibles",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 390,
+    "path": "/suivi-depenses",
+    "url": "/suivi-depenses",
+    "width": 390,
+    "scroll": 390,
+    "title": "Suivi de dépenses automatique : comment ça marche — Clair",
+    "text": "clair.\nGUIDES\nSe connecter\nCommencer gratuitement\nLe suivi de dépenses automatique, expliqué\n\nUn suivi automatique lit l",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 390,
+    "path": "/login",
+    "url": "/login",
+    "width": 390,
+    "scroll": 390,
+    "title": "Connexion",
+    "text": "clair.\nVos finances, au calme.\n\nConnectez-vous en un geste, ou avec votre adresse email.\n\nContinuer avec Google\nContinue",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 390,
+    "path": "/banc/salarie-regulier?vue=1&l=390",
+    "url": "/banc/salarie-regulier",
+    "width": 390,
+    "scroll": 390,
+    "title": "Clair — Finances personnelles",
+    "text": "clair.\nAccueil\nDépenses\nAssistant\nBudgets\nE\nBonjour Camille.\nFILTRER\nseptembre 2026\nSOLDES DES COMPTES\nMis à jour le 15 se",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 390,
+    "path": "/banc/libelles-extremes?vue=1&l=390",
+    "url": "/banc/libelles-extremes",
+    "width": 390,
+    "scroll": 390,
+    "title": "Clair — Finances personnelles",
+    "text": "clair.\nAccueil\nDépenses\nAssistant\nBudgets\nE\nBonjour Camille.\n!\nInsurance\nDépassé de 284,57 € — 1 284,57 € sur 1 000,00 € b",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 1440,
+    "path": "/",
+    "url": "/",
+    "width": 1440,
+    "scroll": 1425,
+    "title": "Clair — Comprendre ses dépenses",
+    "text": "clair.\nFonctionnalités\nSécurité\nBanques\nPrix\nSe connecter\nCommencer\n\nFINANCES PERSONNELLES\n\nVos dépenses, enfin lisibles",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 1440,
+    "path": "/suivi-depenses",
+    "url": "/suivi-depenses",
+    "width": 1440,
+    "scroll": 1425,
+    "title": "Suivi de dépenses automatique : comment ça marche — Clair",
+    "text": "clair.\nGUIDES\nSe connecter\nCommencer gratuitement\nLe suivi de dépenses automatique, expliqué\n\nUn suivi automatique lit l",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 1440,
+    "path": "/login",
+    "url": "/login",
+    "width": 1440,
+    "scroll": 1440,
+    "title": "Connexion",
+    "text": "clair.\nVos finances, au calme.\n\nConnectez-vous en un geste, ou avec votre adresse email.\n\nContinuer avec Google\nContinue",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 1440,
+    "path": "/banc/salarie-regulier?vue=1&l=1440",
+    "url": "/banc/salarie-regulier",
+    "width": 1440,
+    "scroll": 1425,
+    "title": "Clair — Finances personnelles",
+    "text": "clair.\nTableau de bord\nTransactions\nAssistant\nBudgets\n☀\nClair\n☾\nSombre\n◐\nComme le système\nclient@example.test\nSe déconne",
+    "overflow": []
+  },
+  {
+    "requestedWidth": 1440,
+    "path": "/banc/libelles-extremes?vue=1&l=1440",
+    "url": "/banc/libelles-extremes",
+    "width": 1440,
+    "scroll": 1425,
+    "title": "Clair — Finances personnelles",
+    "text": "clair.\nTableau de bord\nTransactions\nAssistant\nBudgets\n☀\nClair\n☾\nSombre\n◐\nComme le système\nclient@example.test\nSe déconne",
+    "overflow": []
+  }
+]

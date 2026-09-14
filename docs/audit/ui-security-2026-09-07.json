@@ -1,0 +1,294 @@
+{
+  "results": [
+    {
+      "requestedWidth": 320,
+      "view": "transactions",
+      "title": "Recette locale — Clair",
+      "width": 320,
+      "scroll": 320,
+      "path": "/banc/espace/transactions",
+      "overflow": [],
+      "filterTops": [
+        502,
+        577,
+        652,
+        727,
+        802
+      ],
+      "classification": "Transport|Other"
+    },
+    {
+      "requestedWidth": 320,
+      "view": "budgets",
+      "title": "Recette locale — Clair",
+      "width": 320,
+      "scroll": 320,
+      "path": "/banc/espace/budgets",
+      "overflow": [],
+      "filterTops": []
+    },
+    {
+      "requestedWidth": 320,
+      "view": "assistant",
+      "title": "Recette locale — Clair",
+      "width": 320,
+      "scroll": 320,
+      "path": "/banc/espace/assistant",
+      "overflow": [],
+      "filterTops": []
+    },
+    {
+      "requestedWidth": 320,
+      "view": "compte",
+      "title": "Recette locale — Clair",
+      "width": 320,
+      "scroll": 320,
+      "path": "/banc/espace/compte",
+      "overflow": [],
+      "filterTops": [],
+      "optionalOpen": false
+    },
+    {
+      "requestedWidth": 320,
+      "view": "bienvenue",
+      "title": "Recette locale — Clair",
+      "width": 320,
+      "scroll": 320,
+      "path": "/banc/espace/bienvenue",
+      "overflow": [],
+      "filterTops": [],
+      "optionalOpen": false
+    },
+    {
+      "requestedWidth": 320,
+      "view": "dashboard",
+      "title": "Clair — Finances personnelles",
+      "width": 320,
+      "scroll": 320,
+      "path": "/banc/salarie-regulier",
+      "overflow": [],
+      "filterTops": [],
+      "recurringTop": 838.109375,
+      "upcomingTop": 609.109375,
+      "metricsBottom": 573.109375
+    },
+    {
+      "requestedWidth": 390,
+      "view": "transactions",
+      "title": "Recette locale — Clair",
+      "width": 390,
+      "scroll": 390,
+      "path": "/banc/espace/transactions",
+      "overflow": [],
+      "filterTops": [
+        459,
+        459,
+        534,
+        534,
+        609
+      ],
+      "classification": "Transport|Other"
+    },
+    {
+      "requestedWidth": 390,
+      "view": "budgets",
+      "title": "Recette locale — Clair",
+      "width": 390,
+      "scroll": 390,
+      "path": "/banc/espace/budgets",
+      "overflow": [],
+      "filterTops": []
+    },
+    {
+      "requestedWidth": 390,
+      "view": "assistant",
+      "title": "Recette locale — Clair",
+      "width": 390,
+      "scroll": 390,
+      "path": "/banc/espace/assistant",
+      "overflow": [],
+      "filterTops": []
+    },
+    {
+      "requestedWidth": 390,
+      "view": "compte",
+      "title": "Recette locale — Clair",
+      "width": 390,
+      "scroll": 390,
+      "path": "/banc/espace/compte",
+      "overflow": [],
+      "filterTops": [],
+      "optionalOpen": false
+    },
+    {
+      "requestedWidth": 390,
+      "view": "bienvenue",
+      "title": "Recette locale — Clair",
+      "width": 390,
+      "scroll": 390,
+      "path": "/banc/espace/bienvenue",
+      "overflow": [],
+      "filterTops": [],
+      "optionalOpen": false
+    },
+    {
+      "requestedWidth": 390,
+      "view": "dashboard",
+      "title": "Clair — Finances personnelles",
+      "width": 390,
+      "scroll": 390,
+      "path": "/banc/salarie-regulier",
+      "overflow": [],
+      "filterTops": [],
+      "recurringTop": 801.890625,
+      "upcomingTop": 592.890625,
+      "metricsBottom": 556.890625
+    },
+    {
+      "requestedWidth": 768,
+      "view": "transactions",
+      "title": "Recette locale — Clair",
+      "width": 768,
+      "scroll": 753,
+      "path": "/banc/espace/transactions",
+      "overflow": [],
+      "filterTops": [
+        447,
+        447,
+        447,
+        447,
+        522
+      ],
+      "classification": "Transport|Other"
+    },
+    {
+      "requestedWidth": 768,
+      "view": "budgets",
+      "title": "Recette locale — Clair",
+      "width": 768,
+      "scroll": 753,
+      "path": "/banc/espace/budgets",
+      "overflow": [],
+      "filterTops": []
+    },
+    {
+      "requestedWidth": 768,
+      "view": "assistant",
+      "title": "Recette locale — Clair",
+      "width": 768,
+      "scroll": 768,
+      "path": "/banc/espace/assistant",
+      "overflow": [],
+      "filterTops": []
+    },
+    {
+      "requestedWidth": 768,
+      "view": "compte",
+      "title": "Recette locale — Clair",
+      "width": 768,
+      "scroll": 753,
+      "path": "/banc/espace/compte",
+      "overflow": [],
+      "filterTops": [],
+      "optionalOpen": false
+    },
+    {
+      "requestedWidth": 768,
+      "view": "bienvenue",
+      "title": "Recette locale — Clair",
+      "width": 768,
+      "scroll": 768,
+      "path": "/banc/espace/bienvenue",
+      "overflow": [],
+      "filterTops": [],
+      "optionalOpen": false
+    },
+    {
+      "requestedWidth": 768,
+      "view": "dashboard",
+      "title": "Clair — Finances personnelles",
+      "width": 768,
+      "scroll": 768,
+      "path": "/banc/salarie-regulier",
+      "overflow": [],
+      "filterTops": [],
+      "recurringTop": 764.828125,
+      "upcomingTop": 764.828125,
+      "metricsBottom": 750.828125
+    },
+    {
+      "requestedWidth": 1440,
+      "view": "transactions",
+      "title": "Recette locale — Clair",
+      "width": 1440,
+      "scroll": 1425,
+      "path": "/banc/espace/transactions",
+      "overflow": [],
+      "filterTops": [
+        405,
+        405,
+        405,
+        405,
+        405
+      ],
+      "classification": "Transport|Other"
+    },
+    {
+      "requestedWidth": 1440,
+      "view": "budgets",
+      "title": "Recette locale — Clair",
+      "width": 1440,
+      "scroll": 1425,
+      "path": "/banc/espace/budgets",
+      "overflow": [],
+      "filterTops": []
+    },
+    {
+      "requestedWidth": 1440,
+      "view": "assistant",
+      "title": "Recette locale — Clair",
+      "width": 1440,
+      "scroll": 1440,
+      "path": "/banc/espace/assistant",
+      "overflow": [],
+      "filterTops": []
+    },
+    {
+      "requestedWidth": 1440,
+      "view": "compte",
+      "title": "Recette locale — Clair",
+      "width": 1440,
+      "scroll": 1425,
+      "path": "/banc/espace/compte",
+      "overflow": [],
+      "filterTops": [],
+      "optionalOpen": false
+    },
+    {
+      "requestedWidth": 1440,
+      "view": "bienvenue",
+      "title": "Recette locale — Clair",
+      "width": 1440,
+      "scroll": 1440,
+      "path": "/banc/espace/bienvenue",
+      "overflow": [],
+      "filterTops": [],
+      "optionalOpen": false
+    },
+    {
+      "requestedWidth": 1440,
+      "view": "dashboard",
+      "title": "Clair — Finances personnelles",
+      "width": 1440,
+      "scroll": 1440,
+      "path": "/banc/salarie-regulier",
+      "overflow": [],
+      "filterTops": [],
+      "recurringTop": 805.09375,
+      "upcomingTop": 805.09375,
+      "metricsBottom": 791.09375
+    }
+  ],
+  "errors": [],
+  "note": "Les erreurs de console antérieures au premier parcours ont été exclues."
+}

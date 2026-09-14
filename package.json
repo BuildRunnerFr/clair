@@ -1,0 +1,37 @@
+{
+  "name": "finance-ia",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit",
+    "test": "vitest run",
+    "test:ai-eval": "RUN_OPENAI_EVAL=1 node --env-file-if-exists=.env.local ./node_modules/vitest/vitest.mjs run tests/openai-reference.live.test.ts --disableConsoleIntercept",
+    "test:watch": "vitest",
+    "check:production": "tsx scripts/check-production-config.ts",
+    "backfill:base-currency": "tsx scripts/backfill-base-currency.ts",
+    "health": "tsx --env-file=.env.local scripts/health.ts",
+    "rotate:key": "tsx --env-file=.env.local scripts/rotate-encryption-key.ts",
+    "backtest:forecast": "tsx --env-file=.env.local scripts/backtest-forecast.ts"
+  },
+  "dependencies": {
+    "@supabase/ssr": "latest",
+    "@supabase/supabase-js": "latest",
+    "next": "16.3.3",
+    "react": "latest",
+    "react-dom": "latest",
+    "server-only": "^0.0.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tsx": "^4.23.13",
+    "typescript": "latest",
+    "vitest": "latest"
+  }
+}

@@ -1,0 +1,20 @@
+node_modules/
+.next/
+out/
+coverage/
+# Toute variante de fichier d'environnement, sauf les gabarits. La liste précédente ne nommait
+# que .env et .env.local : un .env.production — convention de Next — serait parti au premier
+# « git add -A », et c'est la commande qu'emploie chaque commit de ce dépôt.
+.env*
+!.env.example
+!**/.env.example
+
+# Clés et certificats. La clé de connexion Apple est un fichier .p8, et docs/DEPLOIEMENT.md
+# explique comment la générer : posée dans le dossier, elle aurait été versionnée.
+*.pem
+*.p8
+*.key
+*.p12
+*.pfx
+*.log
+*.tsbuildinfo

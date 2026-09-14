@@ -1,0 +1,1834 @@
+:root {
+  color-scheme: light dark;
+
+  /* Trois niveaux d'encre, pour qu'une étiquette ne rivalise jamais avec un chiffre. L'encre
+     est une ardoise bleutée et non un noir : le noir pur sur fond clair fatigue, et donne à une
+     interface financière l'austérité d'un terminal. */
+  --ink: #14181d;
+  --ink-secondary: #454d57;
+  /* Mesuré et non choisi à l'œil : #737d88 donnait 3,8 contre le fond de page, sous les 4,5
+     exigés pour du petit texte — et cette encre-là ne sert qu'à du petit texte, étiquettes,
+     notes et intitulés de colonnes. #646e79 est la première valeur de la même famille à passer
+     sur les trois surfaces claires — mais pas sur les surfaces teintées : 4,41 sur le fond vert
+     pâle, 4,39 sur le rouge pâle. Ces fonds portent justement des étiquettes et des notes, donc
+     du petit texte. #616b76 est la première valeur qui passe sur les sept (le pire cas est le
+     rouge pâle, à 4,59). */
+  --muted: #616b76;
+
+  /* Surfaces, du fond de page vers le relief.
+     Le fond était un blanc cassé chaud et les filets beiges : une palette d'imprimerie, juste
+     pour un texte qu'on lit, fausse pour des chiffres qu'on consulte. Des gris légèrement
+     bleutés — la même famille que l'encre et que l'accent — rendent la page à ce qu'elle est,
+     un écran de données. */
+  --paper: #f3f5f7;
+  --card: #ffffff;
+  --raised: #ffffff;
+  --sunken: #eef1f4;
+  --line: #e0e5ea;
+  --line-strong: #c3cbd4;
+
+  /* Accent de marque. Un bleu-vert profond : il tient de l'assurance sans le sérieux glacé d'un
+     bleu bancaire, et se distingue du vert « validé » réservé aux états. */
+  --green: #1b3a63;
+  --green-strong: #142c4b;
+  --green-soft: #e8edf4;
+  --green-border: #c6d3e4;
+
+  /* Une seconde teinte, chaude, employée avec parcimonie : elle marque ce qui mérite l'œil sans
+     alarmer, là où l'accent de marque signalerait une action. */
+  --gold: #8a6420;
+  --gold-soft: #f4eee1;
+
+  /* Les états forment une échelle à part : réemployer l'accent pour « bon » ferait passer une
+     barre de progression ordinaire pour un verdict. */
+  --warn: #8a5a00;
+  --warn-soft: #fbf1dc;
+  --warn-mark: #d09324;
+  --danger: #a13328;
+  --danger-soft: #fbe8e5;
+  --danger-mark: #c2453a;
+
+  /* Familles de catégories. Déclarées en variables et non en valeurs littérales : une couleur
+     posée en style inline est calculée sur le serveur, qui ignore le thème du navigateur.
+     Palette validée toutes paires en clair, paires voisines en sombre — voir families.ts. */
+  --family-essentiels: #00785e;
+  --family-quotidien: #4477d8;
+  --family-plaisirs: #bd800c;
+  --family-argent: #6d33a0;
+  --family-sante: #dd6089;
+  --family-autre: #7a8794;
+
+  /* La flèche des listes déroulantes, en jeton pour qu'elle suive le thème : une image de
+     fond ne peut pas lire une variable de couleur, mais elle peut être la variable. */
+  --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.75 6 6.25 11 1.75' fill='none' stroke='%234a5058' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+  /* La hauteur de la barre d'onglets, en jeton parce que trois règles doivent s'accorder : la
+     barre elle-même, la réserve laissée en bas des pages, et tout ce qui se pose au-dessus.
+     Elle valait 84 px écrits en dur d'un côté et se calculait de l'autre — sur un téléphone à
+     encoche, l'indicateur d'accueil ajoute jusqu'à trente-quatre pixels que la réserve
+     n'anticipait pas, et le dernier bouton de chaque page passait dessous. */
+  --tabbar: calc(52px + env(safe-area-inset-bottom));
+
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 36px;
+
+  /* Des angles courts. Douze pixels de rayon disent « application grand public » ; les outils
+     financiers auxquels on confie de l'argent tiennent entre quatre et huit. La forme porte
+     autant que la couleur, et un angle presque droit se lit comme du sérieux. */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
+  --r-pill: 999px;
+
+  --invert-bg: #1c1f24;
+  /* L'encre à poser sur l'accent, et non un blanc écrit en dur : en thème sombre l'accent
+     devient un bleu clair, sur lequel du blanc tombe à 2,5 pour un — le bouton principal de
+     l'application était illisible pour qui l'utilise de nuit. */
+  --invert-ink: #ffffff;
+  /* Panneaux sombres, employés pour une seule chose à la fois : ils attirent l'œil, et deux
+     panneaux sur un écran n'en attirent aucun. */
+  --panel-bg: #1b2a3f;
+  --panel-ink: #ffffff;
+  --panel-muted: #b3bfd0;
+  --panel-border: #33455e;
+
+  /* Ombres teintées de l'encre plutôt que du noir pur : elles appartiennent alors à la palette
+     au lieu de poser un voile gris. */
+  --shadow-sm: 0 1px 2px rgba(28, 31, 36, .05);
+  --shadow-md: 0 1px 2px rgba(28, 31, 36, .04), 0 6px 16px -10px rgba(28, 31, 36, .16);
+  --shadow-lg: 0 2px 4px rgba(28, 31, 36, .05), 0 14px 32px -18px rgba(28, 31, 36, .2);
+
+  --sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: var(--font-serif), Georgia, "Times New Roman", serif;
+
+  font-family: var(--sans);
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* Le thème sombre est choisi et non déduit : les teintes y sont reprises sur les mêmes échelles,
+   l'accent relevé pour porter sur un fond sombre, et la carte placée au-dessus de la page plutôt
+   qu'en dessous. */
+@media (prefers-color-scheme: dark) {
+  /* Un choix explicite de thème clair l'emporte sur le réglage du système. */
+  :root:not([data-theme="light"]) {
+    --ink: #e9e7e2;
+    --ink-secondary: #b8b4ac;
+    --muted: #918d85;
+    --paper: #16181c;
+    --card: #1e2126;
+    --raised: #23272d;
+    --sunken: #1a1c21;
+    --line: #2c2f35;
+    --line-strong: #414449;
+    --green: #7fa6dc;
+    --green-strong: #9dbce8;
+    --green-soft: #16202e;
+    --green-border: #253449;
+    --gold: #c99f5c;
+    --gold-soft: #2a2314;
+    --warn: #e0ac52;
+    --warn-soft: #2a2114;
+    --warn-mark: #d09324;
+    --danger: #f0958a;
+    --danger-soft: #2c1a17;
+    --danger-mark: #c2453a;
+    --family-essentiels: #1f9179;
+    --family-quotidien: #5e8fe4;
+    --family-plaisirs: #c08722;
+    --family-argent: #8b57c4;
+    --family-sante: #d66d90;
+    --family-autre: #93a0ac;
+    --invert-bg: #e9e7e2;
+    --invert-ink: #16181c;
+    --panel-bg: #202b3b;
+    --panel-ink: #e9e7e2;
+    --panel-muted: #a3aebd;
+    --panel-border: #33415a;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+    --shadow-md: 0 1px 2px rgba(0, 0, 0, .35), 0 8px 20px -12px rgba(0, 0, 0, .6);
+    --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.75 6 6.25 11 1.75' fill='none' stroke='%23b8b4ac' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    --shadow-lg: 0 2px 4px rgba(0, 0, 0, .35), 0 18px 40px -20px rgba(0, 0, 0, .7);
+  }
+}
+
+/* Le même jeu de teintes, appliqué cette fois sur un choix explicite.
+   Les valeurs sont répétées faute de pouvoir l'éviter : le CSS ne sait pas nommer un jeu de
+   déclarations pour le rejouer sous un autre sélecteur, et l'indirection par une seconde série
+   de variables ne ferait que déplacer la répétition. Toute modification vaut pour les deux. */
+:root[data-theme="dark"] {
+    --ink: #e9e7e2;
+    --ink-secondary: #b8b4ac;
+    --muted: #918d85;
+    --paper: #16181c;
+    --card: #1e2126;
+    --raised: #23272d;
+    --sunken: #1a1c21;
+    --line: #2c2f35;
+    --line-strong: #414449;
+    --green: #7fa6dc;
+    --green-strong: #9dbce8;
+    --green-soft: #16202e;
+    --green-border: #253449;
+    --gold: #c99f5c;
+    --gold-soft: #2a2314;
+    --warn: #e0ac52;
+    --warn-soft: #2a2114;
+    --warn-mark: #d09324;
+    --danger: #f0958a;
+    --danger-soft: #2c1a17;
+    --danger-mark: #c2453a;
+    --family-essentiels: #1f9179;
+    --family-quotidien: #5e8fe4;
+    --family-plaisirs: #c08722;
+    --family-argent: #8b57c4;
+    --family-sante: #d66d90;
+    --family-autre: #93a0ac;
+    --invert-bg: #e9e7e2;
+    --invert-ink: #16181c;
+    --panel-bg: #202b3b;
+    --panel-ink: #e9e7e2;
+    --panel-muted: #a3aebd;
+    --panel-border: #33415a;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+    --shadow-md: 0 1px 2px rgba(0, 0, 0, .35), 0 8px 20px -12px rgba(0, 0, 0, .6);
+    --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.75 6 6.25 11 1.75' fill='none' stroke='%23b8b4ac' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    --shadow-lg: 0 2px 4px rgba(0, 0, 0, .35), 0 18px 40px -20px rgba(0, 0, 0, .7);
+  }
+
+/* Les contrôles natifs — barres de défilement, sélecteurs de date — se peignent d'après
+   color-scheme et non d'après nos jetons : sans ces deux lignes, un thème choisi laisse un
+   calendrier clair sur une page sombre. */
+:root[data-theme="dark"] { color-scheme: dark; }
+:root[data-theme="light"] { color-scheme: light; }
+
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); }
+.value, strong, .balance-total strong { font-variant-numeric: tabular-nums; }
+button, select, input { font: inherit; }
+/* La page réserve elle-même la place des bandes système : avec viewport-fit: cover, le contenu
+   irait sinon sous l'heure et la batterie. Les marges latérales suivent aussi, pour un téléphone
+   tenu à l'horizontale où l'encoche mord sur un côté. */
+.shell {
+  width: min(1120px, 100%); margin: 0 auto;
+  padding-top: calc(24px + env(safe-area-inset-top));
+  padding-right: calc(18px + env(safe-area-inset-right));
+  padding-bottom: 56px;
+  padding-left: calc(18px + env(safe-area-inset-left));
+}
+/* En-tête en trois zones : identité, navigation, compte. Auparavant l'adresse e-mail était
+   glissée sous la marque, occupant la place la plus lisible de la page pour la donnée la moins
+   utile ; elle rejoint les actions de compte, à droite, où on la cherche. */
+.header { display: flex; align-items: center; justify-content: space-between; gap: var(--s5); padding-bottom: var(--s3); margin-bottom: var(--s5); border-bottom: 1px solid var(--line); }
+.header-account { display: flex; align-items: center; gap: var(--s3); min-width: 0; }
+.header-account .user-email { max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* La pastille d'initiale ne sert que sur téléphone ; sur grand écran l'adresse suffit. */
+.user-initial { display: none; }
+
+/* Le sélecteur de thème. Trois positions dans un même cadre, à la façon d'un interrupteur à
+   glissière : elles se lisent comme un choix unique, là où trois boutons séparés se liraient
+   comme trois actions. */
+.theme-toggle { display: inline-flex; padding: 2px; gap: 2px; background: var(--sunken); border: 1px solid var(--line); border-radius: var(--r-pill); }
+.theme-option {
+  border: none; background: none; cursor: pointer; color: var(--muted);
+  padding: 4px 9px; border-radius: var(--r-pill); line-height: 1; font-size: .84rem;
+  transition: background-color .15s ease, color .15s ease, transform .1s ease;
+}
+.theme-option:hover { color: var(--ink); background: var(--card); }
+.theme-option:active { transform: scale(.94); }
+.theme-option[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: var(--shadow-sm); }
+
+/* Un libellé pour les lecteurs d'écran, retiré de l'affichage sans être retiré de l'arbre :
+   `display: none` le rendrait muet, ce qui laisserait trois boutons sans nom. */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+/* --- L'écran d'accueil ------------------------------------------------------------------
+   Une colonne étroite, centrée, sans navigation : la page n'a qu'une chose à faire, et tout
+   ce qui mènerait ailleurs ne ferait que retarder. */
+/* « safe center » plutôt que « center » : un contenu plus haut que l'écran déborde alors vers
+   le bas et reste atteignable, là où un centrage ordinaire le déborde des deux côtés et rend
+   son haut — donc le titre et le premier champ — impossible à remonter. */
+.welcome-shell { display: grid; justify-items: center; align-content: safe center; min-height: 100svh; padding: calc(var(--s5) + env(safe-area-inset-top)) var(--s4) calc(var(--s5) + env(safe-area-inset-bottom)); }
+.welcome-card { width: min(560px, 100%); background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-md); padding: clamp(var(--s5), 5vw, 40px); }
+.welcome-brand { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; letter-spacing: -.015em; margin: 0 0 var(--s5); color: var(--green); }
+.welcome-card h1 { margin-bottom: var(--s2); }
+.welcome-lead { color: var(--ink-secondary); font-size: .92rem; line-height: 1.5; margin: 0 0 var(--s5); }
+.welcome-form { display: grid; gap: var(--s4); }
+.welcome-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+.field-hint { color: var(--muted); font-size: .74rem; line-height: 1.4; }
+.welcome-form .primary { justify-self: stretch; }
+.welcome-account { color: var(--muted); font-size: .76rem; margin: var(--s4) 0 0; text-align: center; }
+
+/* Sur la page du compte, le formulaire de profil n'est plus un écran d'accueil : il tient dans
+   une carte, sans le grand bouton pleine largeur qui convenait à une page dédiée. */
+.card .welcome-form { gap: var(--s3); margin-top: var(--s3); }
+.card .welcome-form .primary { justify-self: start; }
+.account-hint { margin-top: 4px; }
+.account-actions { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s3); }
+.appearance-row { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin-top: var(--s4); padding-top: var(--s3); border-top: 1px solid var(--line); }
+.appearance-label { margin: 0; }
+
+@media (max-width: 520px) {
+  .welcome-row { grid-template-columns: 1fr; }
+}
+
+/* Navigation en onglets. Le fond plein marque la page courante mieux qu'une couleur seule :
+   il se repère sans être lu, et reste visible pour qui distingue mal les teintes. */
+.main-nav { display: flex; align-items: center; gap: 2px; }
+.main-nav a { color: var(--ink-secondary); text-decoration: none; font-size: .84rem; font-weight: 600; padding: 7px 12px; border-radius: var(--r-pill); white-space: nowrap; }
+.main-nav a:hover { background: var(--sunken); color: var(--ink); }
+/* Deux libellés pour un même bouton : le long sur grand écran, le court sur téléphone. Le
+   mécanisme n'existait que pour la barre de navigation, et les spans posés ailleurs
+   s'affichaient donc tous les deux — « Synchroniser maintenantSynchroniser ». */
+.nav-short { display: none; }
+.main-nav a[aria-current="page"] { background: var(--green); color: var(--invert-ink); font-weight: 650; }
+.main-nav a[aria-current="page"]:hover { background: var(--green-strong); color: var(--invert-ink); }
+.brand { font-family: var(--serif); font-weight: 600; letter-spacing: -0.015em; font-size: 1.4rem; }
+.brand-link { color: inherit; text-decoration: none; }
+.badge { background: var(--green-soft); color: var(--green); border-radius: 999px; padding: 7px 11px; font-size: .78rem; font-weight: 650; }
+/* Les titres après la bascule du serif au sans.
+   Un serif tient son autorité du dessin de ses lettres ; un sans la tient de sa graisse et de
+   son interlettrage. Reprendre les mêmes réglages aurait donné des titres mous — d'où plus de
+   corps, un cran de graisse, et un resserrement franc. */
+h1 { font-size: clamp(1.55rem, 3.6vw, 2.05rem); letter-spacing: -.032em; line-height: 1.14; margin: 0 0 var(--s1); font-weight: 700; }
+
+/* Le salut du tableau de bord, ramené à sa place.
+   Il ouvrait la page en deux centimètres de haut, avant le moindre chiffre. C'est une politesse,
+   pas une information : elle reste, en une ligne discrète, et cède la vedette au solde. */
+.page-greeting { font-size: .92rem; font-weight: 600; letter-spacing: 0; color: var(--muted); margin: 0 0 var(--s4); }
+.intro { color: var(--muted); font-size: .86rem; margin: 0 0 var(--s5); }
+/* --- La barre de filtres ---------------------------------------------------------------
+   Chaque contrôle porte son intitulé au-dessus. Il n'y en avait pas : quatre listes côte à
+   côte se distinguaient par leur valeur courante, ce qui marche tant qu'elles ont une valeur
+   — un champ de mois vide n'affiche que le masque « ---- -- » du navigateur, et rien ne dit
+   ce qu'il attend.
+
+   Une rangée flexible plutôt qu'une grille à colonnes égales : le bouton occupait sinon une
+   colonne entière au même titre qu'une liste, et pesait dans la page à proportion de sa
+   largeur plutôt que de son importance. */
+.filters { display: flex; flex-wrap: wrap; align-items: end; gap: var(--s3) var(--s2); margin-bottom: var(--s4); }
+.field { display: grid; gap: 5px; flex: 1 1 170px; min-width: 0; }
+.field > span { color: var(--muted); font-size: .72rem; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; }
+.filters > input, .filters > select, .filters > .field { flex: 1 1 170px; }
+.filters .filter-button { flex: 0 0 auto; }
+
+/* Un filtre par ligne sur un téléphone.
+   Deux par ligne tenaient géométriquement — les boîtes ne se chevauchaient à aucune largeur —
+   mais pas typographiquement : à 390 px, un champ fait 173 de large, dont 137 utilisables une
+   fois retirés le remplissage et la place de la flèche, quand « Toutes les catégories » en
+   réclame environ 140. Le texte débordait donc de son contrôle et venait mordre sur le voisin.
+
+   Et un `select` fermé ne sait pas se tronquer : text-overflow n'a aucun effet dessus, chaque
+   moteur décidant seul de rogner ou de laisser déborder. La seule correction sûre est de lui
+   donner la place. C'est aussi ce qui protège des tailles de police système agrandies, où deux
+   colonnes deviennent intenables quelle que soit la largeur de l'écran. */
+
+/* Once AutoSubmit has mounted the button is redundant; without JS it stays and works. */
+.filters[data-auto-submit="on"] .filter-button { display: none; }
+
+/* --- Les contrôles ---------------------------------------------------------------------
+   Un seul système pour tous les champs et toutes les listes.
+
+   Il y en avait cinq, chacun avec son rayon — 12 px et 10 px écrits en dur, ailleurs le
+   jeton —, son remplissage — 9, 10 ou 11 px — et sa bordure. Le même contrôle changeait de
+   taille et de forme d'une page à l'autre, ce qui se voit sans qu'on sache le nommer.
+
+   Les listes déroulantes perdent aussi leur habillage natif. Il diffère d'un système à l'autre,
+   ignore le thème sombre, et sa flèche n'a ni la couleur ni le poids du reste de la page. */
+select,
+input:not([type="checkbox"]):not([type="radio"]),
+textarea {
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 10px 12px;
+  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+
+select {
+  appearance: none;
+  cursor: pointer;
+  /* La place de la flèche est réservée dans le remplissage : sans quoi une option longue passe
+     dessous, et c'est exactement ce qui se produisait sur « Toutes les catégories ». */
+  padding-right: 36px;
+  background-image: var(--select-arrow);
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px 8px;
+  /* Une option ne doit jamais élargir la liste au-delà de sa colonne. */
+  text-overflow: ellipsis;
+}
+
+select:hover:not(:disabled),
+input:hover:not(:disabled),
+textarea:hover:not(:disabled) { border-color: var(--line-strong); }
+
+select:disabled, input:disabled { opacity: .55; cursor: not-allowed; }
+
+/* ── La liste de choix, à la place du menu natif ───────────────────────────────────────────────
+   Le bouton reprend trait pour trait l'apparence d'un champ — même bordure, même rayon, même
+   remplissage, même flèche — pour que rien ne bouge à l'œil entre un filtre et un autre. Seule
+   la liste est nouvelle. */
+/* La liste de choix porte son propre label ; quand une précision l'accompagne, c'est ce bloc
+   qui les empile — le label ne peut plus les envelopper tous les deux. */
+.field-with-hint { display: grid; gap: 4px; min-width: 0; }
+.select-shell { position: relative; width: 100%; min-width: 0; }
+.select-button {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s2);
+  width: 100%; min-width: 0; min-height: 42px; padding: 10px 12px;
+  font: inherit; text-align: left; color: var(--ink); background: var(--card);
+  border: 1px solid var(--line); border-radius: var(--r-md); cursor: pointer;
+  background-image: var(--select-arrow); background-repeat: no-repeat;
+  background-position: right 12px center; background-size: 12px 8px; padding-right: 36px;
+}
+.select-button:hover:not(:disabled) { border-color: var(--line-strong); }
+.select-button:disabled { opacity: .55; cursor: not-allowed; }
+/* Ouvert, le champ prend la couleur d'accent : c'est ce qui relie visuellement le bouton à la
+   liste qui vient d'apparaître dessous. */
+.select-open .select-button { border-color: var(--green); }
+.select-value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.select-list {
+  position: absolute; z-index: 40; top: calc(100% + 4px); left: 0; right: 0;
+  max-height: 280px; overflow-y: auto; margin: 0; padding: 4px; list-style: none;
+  background: var(--raised); border: 1px solid var(--line-strong); border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+}
+.select-list li {
+  padding: 10px 12px; border-radius: var(--r-sm); cursor: pointer; font-size: .92rem;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+/* Le survol et le clavier désignent la même chose, donc se peignent pareil : deux surbrillances
+   distinctes feraient croire à deux curseurs. */
+.select-list li[data-actif="true"] { background: var(--sunken); }
+/* La coche marque le choix en cours, que la surbrillance ne dit pas — elle dit où l'on est, pas
+   ce qu'on a retenu. */
+.select-list li[aria-selected="true"] { font-weight: 650; }
+.select-list li[aria-selected="true"]::after { content: " ✓"; color: var(--green); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .select-button { transition: border-color .15s ease, box-shadow .15s ease; }
+  .select-list li { transition: background-color .1s ease; }
+}
+
+/* Le halo de focus reprend l'accent : il doit se voir au clavier autant qu'à la souris, et
+   l'anneau par défaut du navigateur ne s'accorde à aucune interface. */
+select:focus-visible, input:focus-visible, button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--green); outline-offset: 2px; border-radius: var(--r-sm);
+}
+select:focus, input:focus, textarea:focus {
+  border-color: var(--green); box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 14%, transparent); outline: none;
+}
+/* Ouverte, la liste garde son halo : le focus visible pendant qu'on choisit rassure sur ce
+   qu'on est en train de modifier. */
+select:active:not(:disabled) { background-color: var(--sunken); }
+
+/* Les options elles-mêmes. Peu de choses sont réglables — le navigateur dessine le menu — mais
+   la couleur de fond évite un menu blanc surgissant d'une page sombre. */
+select option { background: var(--card); color: var(--ink); }
+
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; align-items: start; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--s4); box-shadow: var(--shadow-sm); }
+.card:hover { box-shadow: var(--shadow-md); border-color: var(--line-strong); }
+.metric { grid-column: span 4; }
+.full { grid-column: 1 / -1; }
+.balance-row { display: grid; grid-template-columns: 1fr auto auto auto; align-items: baseline; gap: 18px; padding: 11px 0; border-top: 1px solid var(--line); font-size: .88rem; }
+.balance-row:first-of-type { border-top: none; }
+.balance-row .balance-name { font-weight: 620; }
+.balance-row .balance-secondary { color: var(--muted); font-size: .8rem; }
+.balance-total { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 6px; }
+.trend { display: grid; gap: var(--s2); }
+.trend-bars { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: var(--s2); align-items: end; min-height: 150px; }
+.trend-bar { display: grid; grid-template-rows: auto 1fr auto; gap: 6px; justify-items: center; min-width: 0; }
+.trend-value { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* La barre et son fond se distinguaient à peine : --sunken et --line-strong sont deux beiges
+   voisins, et sur six colonnes on ne voyait que des blocs. Une seule teinte, deux intensités —
+   les mois passés en accent atténué, le mois courant en accent plein — donne l'échelle sans
+   introduire de couleur qui signifierait autre chose. Le fond, lui, s'efface : ce n'est qu'un
+   repère de hauteur maximale. */
+/* Le fond ne sert qu'à marquer la hauteur maximale : il doit s'effacer devant la barre, sinon
+   la colonne se lit comme un bloc bicolore plutôt que comme une mesure. */
+.trend-column { position: relative; width: 100%; max-width: 54px; height: 100px; display: flex; align-items: flex-end; background: color-mix(in srgb, var(--line) 32%, transparent); border-radius: var(--r-sm); overflow: hidden; }
+/* Un dégradé vertical plutôt qu'un aplat : la barre garde sa densité là où on lit sa hauteur,
+   et s'allège vers le bas, où elle n'est plus qu'une surface. */
+.trend-column span { display: block; width: 100%; border-radius: inherit;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--green) 60%, transparent), color-mix(in srgb, var(--green) 34%, transparent)); }
+.trend-bar-current .trend-column span { background: linear-gradient(180deg, var(--green), color-mix(in srgb, var(--green) 72%, transparent)); }
+/* Le trait de moyenne traverse les colonnes à sa hauteur. Il est posé dans chaque colonne et non
+   au-dessus de la rangée : la ligne de base des barres est celle du rail « 1fr » de la grille,
+   qu'aucun élément placé plus haut ne peut viser sans redouter la hauteur des étiquettes. */
+.trend-column::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: calc(var(--average, 0) * 1%);
+  border-top: 1px dashed var(--ink-secondary); opacity: .45; pointer-events: none;
+}
+.trend-bar:hover .trend-column span { background: linear-gradient(180deg, var(--green), color-mix(in srgb, var(--green) 62%, transparent)); }
+.trend-bar:hover .trend-value { color: var(--ink); }
+.trend-bar-current .trend-value { color: var(--ink); font-weight: 680; }
+.trend-bar-current .trend-month { color: var(--green); font-weight: 650; }
+.trend-month { font-size: .72rem; color: var(--muted); text-transform: capitalize; }
+.trend-caption { color: var(--muted); font-size: .76rem; margin: 0; }
+.chart-figure { margin: 4px 0 0; }
+.balance-chart { width: 100%; height: auto; display: block; overflow: visible; }
+/* La grille est en pointillé fin et ne porte pas de trait plein : elle sert de repère de
+   hauteur, elle ne délimite rien. Un trait continu de même épaisseur que la courbe entre en
+   concurrence avec elle. */
+.chart-grid { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
+.chart-zero { stroke: var(--line-strong); stroke-width: 1.5; }
+/* Le remplissage vient de l'attribut, qui porte le dégradé : une déclaration `fill` ici le
+   masquerait, la feuille l'emportant sur l'attribut de présentation. */
+.chart-area { stroke: none; }
+.chart-fill-top { stop-color: var(--green); stop-opacity: .26; }
+.chart-fill-bottom { stop-color: var(--green); stop-opacity: 0; }
+.chart-line { fill: none; stroke: var(--green); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+/* Trois textures pour trois natures de trait : plein pour un relevé, pointillé serré pour
+   une reconstitution, tirets longs pour une prévision. Deux pointillés voisins se confondent, et
+   le lecteur ne saurait plus ce qui est mesuré. */
+.chart-line-estimated { stroke-dasharray: 1.5 3; stroke-linecap: round; }
+.chart-endpoint { fill: var(--green); stroke: var(--card); stroke-width: 2; }
+.chart-endpoint-halo { fill: var(--green); opacity: .16; }
+.chart-axis { fill: var(--muted); font-size: 10px; }
+.chart-frame { position: relative; }
+/* Le graphique se parcourt au doigt : on pose et on glisse, la valeur suit.
+   `pan-y` laisse la page défiler verticalement tout en nous réservant le geste horizontal ;
+   `none` bloquerait le défilement dès qu'on touche la courbe, `auto` nous priverait du geste. */
+.balance-chart { touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
+/* Le cadre de focus reste, mais pour le clavier seul. Un tapotement sur un élément focalisable
+   l'affichait sur iOS : un grand rectangle bleu autour du dessin, à chaque effleurement, alors
+   qu'on voulait seulement lire une valeur. `:focus-visible` ne suffit pas là-bas — d'où
+   l'annulation explicite quand le focus vient d'un pointeur. */
+.balance-chart:focus { outline: none; }
+.balance-chart:focus-visible:not(:active) { outline: 2px solid var(--green); outline-offset: 3px; border-radius: var(--r-md); }
+.chart-crosshair { stroke: var(--green); stroke-width: 1; stroke-dasharray: 3 3; opacity: .5; }
+.chart-focus { fill: var(--green); stroke: var(--card); stroke-width: 2; }
+/* L'étiquette de valeur sur l'axe : encre inversée, comme la bulle, pour qu'on les lise comme
+   deux faces du même repère et non comme deux informations distinctes. */
+.chart-axis-tag { position: absolute; left: 0; transform: translateY(-50%); padding: 2px 5px; border-radius: 3px; background: var(--invert-bg); color: var(--invert-ink); font-size: .62rem; font-weight: 650; font-variant-numeric: tabular-nums; pointer-events: none; white-space: nowrap; }
+.chart-tooltip { position: absolute; top: 0; transform: translateX(-50%); background: var(--invert-bg); color: var(--invert-ink); border-radius: var(--r-sm); padding: 7px 10px; display: grid; gap: 1px; pointer-events: none; white-space: nowrap; box-shadow: 0 6px 18px rgba(23, 33, 27, .18); }
+.chart-tooltip strong { font-size: .9rem; font-weight: 700; letter-spacing: -.02em; }
+.chart-tooltip span { color: var(--muted); font-size: .7rem; }
+.chart-caption { color: var(--muted); font-size: .76rem; margin: 8px 0 0; line-height: 1.45; }
+.caption-short { display: none; }
+@media (max-width: 560px) { .caption-short { display: inline; } }
+
+/* La prévision. Même teinte que la courbe mesurée — c'est la même grandeur — mais le trait
+   passe en pointillé et une bande l'entoure : une estimation ne doit jamais avoir l'allure
+   d'une mesure. La bande est volontairement pâle, elle situe sans attirer l'œil avant la ligne. */
+.chart-band { fill: var(--green); opacity: .12; stroke: none; }
+.chart-line-projected { stroke-dasharray: 9 6; opacity: .8; }
+.chart-today { stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 2 3; }
+
+/* Entrées, sorties, différence : trois chiffres de même nature, alignés pour être comparés
+   d'un regard plutôt que lus l'un après l'autre. */
+/* Trois colonnes tant qu'elles tiennent, puis moins.
+   Éprouvé sur un montant à six chiffres : « 103 192,99 € » débordait de sa colonne et élargissait
+   la page entière de quinze pixels. Une largeur imposée en tiers ne sait rien du nombre qu'elle
+   doit contenir ; `auto-fit` avec un minimum le sait, et `min-width: 0` autorise la colonne à se
+   resserrer au lieu de pousser ses voisines dehors. */
+.flow-figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: var(--s3); margin: var(--s3) 0 0; }
+.flow-figure { display: grid; gap: 2px; min-width: 0; padding: var(--s3) 0 0; border-top: 1px solid var(--line); }
+.flow-figure strong { font-size: 1.32rem; font-weight: 680; letter-spacing: -.03em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.flow-net { border-top-color: var(--line-strong); }
+.flow-in { color: var(--green); }
+.flow-out { color: var(--danger); }
+
+.upcoming-list { list-style: none; margin: var(--s3) 0 0; padding: 0; }
+.upcoming-row { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: var(--s3); padding: 10px 0; border-top: 1px solid var(--line); font-size: .88rem; }
+.upcoming-row strong { font-variant-numeric: tabular-nums; }
+.upcoming-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Une barre unique plutôt que deux : la question est la part des revenus qui est partie, et une
+   part se lit sur un tout, pas en comparant deux longueurs. */
+.flow-bar { height: 8px; border-radius: 999px; background: var(--sunken); overflow: hidden; margin: var(--s4) 0 var(--s3); }
+.flow-bar span { display: block; height: 100%; border-radius: 999px; background: var(--green); }
+.flow-bar-over span { background: var(--danger-mark); }
+
+/* La colonne du milieu de .bar-row ne sert à rien ici, et son nom se brisait en deux lignes. */
+.top-merchant { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: var(--s3); margin: var(--s3) 0; font-size: .84rem; }
+.top-merchant strong { font-variant-numeric: tabular-nums; }
+.balance-total strong { font-size: 1.75rem; font-weight: 730; letter-spacing: -.045em; }
+.wide { grid-column: span 7; }
+.side { grid-column: span 5; }
+.label { color: var(--muted); font-size: .74rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-bottom: var(--s2); }
+.value { font-size: 1.5rem; font-weight: 680; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.metric:first-of-type { background: var(--raised); border-color: var(--green-border); }
+.metric:first-of-type .value { font-size: 2.35rem; font-weight: 720; letter-spacing: -.045em; color: var(--ink); }
+.metric:first-of-type .label { color: var(--green); font-weight: 650; }
+.trend { margin-top: var(--s2); color: var(--muted); font-size: .78rem; }
+.positive { color: var(--green); }
+.bar-row { display: grid; grid-template-columns: 110px 1fr auto; align-items: center; gap: var(--s3); margin: var(--s3) 0; font-size: .84rem; }
+.bar-row strong { font-variant-numeric: tabular-nums; }
+.bar { height: 7px; border-radius: var(--r-pill); background: var(--sunken); overflow: hidden; }
+.bar span { display: block; height: 100%; border-radius: inherit; background: var(--green); }
+.pagination { display: flex; align-items: center; justify-content: center; gap: var(--s3); margin-top: var(--s4); }
+.subscriptions { display: grid; }
+.subscription-row { display: grid; grid-template-columns: 1fr auto; gap: 2px var(--s3); padding: 11px 0; border-top: 1px solid var(--line); font-size: .88rem; }
+.subscription-row .balance-secondary { grid-column: 1; }
+.subscription-row strong { grid-row: span 2; grid-column: 2; align-self: center; text-align: right; font-variant-numeric: tabular-nums; }
+.subscription-name { font-weight: 620; }
+.subscription-change { display: block; font-style: normal; color: var(--warn); font-size: .74rem; margin-top: 2px; }
+.transaction-days { display: grid; gap: var(--s4); }
+/* Un séparateur de journée, et non une ligne grise entre deux opérations.
+   Il se lisait à peine : la même teinte que les annotations, la même taille, et un filet aussi
+   pâle que ceux qui séparent déjà chaque ligne. Il porte maintenant l'encre secondaire, un filet
+   plus marqué, et de l'air au-dessus — ce qui sépare doit se voir davantage que ce qui est
+   séparé. */
+.transaction-day { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s3); margin-top: var(--s4); padding-bottom: 7px; border-bottom: 1px solid var(--line-strong); color: var(--ink-secondary); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.transaction-days > section:first-child .transaction-day { margin-top: 0; }
+.transaction-day-total { font-variant-numeric: tabular-nums; text-transform: none; letter-spacing: 0; color: var(--muted); font-weight: 600; }
+.amount-credit { color: var(--green); }
+.transactions { list-style: none; margin: 0; padding: 0; }
+.transaction { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.transaction:last-child { border-bottom: 0; }
+.transaction-days section:last-child .transaction:last-child { border-bottom: 0; }
+.merchant { font-weight: 650; }
+.meta { color: var(--muted); font-size: .78rem; display: inline-flex; align-items: center; gap: 6px; }
+/* La couleur double le libellé, elle ne le remplace jamais : seule, elle exclurait quiconque
+   ne la perçoit pas, et six familles ne sauraient de toute façon pas nommer vingt-deux
+   catégories. */
+.category-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.amount { grid-row: span 2; grid-column: 2; align-self: center; font-weight: 650; font-variant-numeric: tabular-nums; text-align: right; }
+
+/* --- Une transaction dépliable ---------------------------------------------------------
+   Le résumé garde exactement la mise en page de la ligne fermée : ouvrir ne doit rien
+   déplacer, sinon l'œil perd la ligne qu'il venait de désigner. */
+.transaction-item { list-style: none; }
+.transaction-details > summary { list-style: none; cursor: pointer; }
+.transaction-details > summary::-webkit-details-marker { display: none; }
+.transaction-details > summary::marker { content: ""; }
+.transaction-details > summary:hover { background: var(--sunken); }
+/* Un chevron discret : sans lui, rien ne dit qu'une ligne s'ouvre, et une interaction qu'on
+   ne devine pas n'existe pas. Il pivote à l'ouverture pour confirmer le geste. */
+.transaction-details > summary::after {
+  content: ""; position: absolute; right: var(--s4); top: 50%;
+  width: 10px; height: 10px; margin-top: -5px;
+  background: var(--select-arrow) no-repeat center / 10px 7px;
+  opacity: .5; transition: transform .18s ease, opacity .18s ease;
+}
+.transaction-details > summary:hover::after { opacity: 1; }
+.transaction-details[open] > summary::after { transform: rotate(180deg); }
+.transaction-details[open] > summary { background: var(--sunken); border-bottom-color: transparent; }
+/* Le retrait négatif puis le remplissage étendent la zone sensible aux marges de la carte :
+   une ligne cliquable dont seul le texte réagit se sent mal réglée. */
+.transaction-details > summary,
+.transaction-item > .transaction { position: relative; margin: 0 calc(var(--s4) * -1); padding-left: var(--s4); padding-right: var(--s4); border-radius: var(--r-sm); transition: background-color .14s ease; }
+/* La place du chevron est prise sur le remplissage, faute de quoi il se pose sur le montant. */
+.transaction-details > summary { padding-right: calc(var(--s4) + 18px); }
+
+.transaction-panel {
+  display: grid; gap: var(--s3);
+  margin: 0 calc(var(--s4) * -1); padding: var(--s4);
+  background: var(--sunken); border-radius: 0 0 var(--r-sm) var(--r-sm);
+}
+.transaction-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--s3); margin: 0; }
+.transaction-facts dt { color: var(--muted); font-size: .72rem; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; }
+.transaction-facts dd { margin: 3px 0 0; font-size: .86rem; }
+.transaction-raw { grid-column: 1 / -1; }
+.transaction-raw dd { font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, monospace); font-size: .78rem; color: var(--ink-secondary); word-break: break-word; }
+.reclassify { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s2); align-items: center; }
+.transaction-hint { margin: 0; color: var(--muted); font-size: .76rem; }
+
+/* L'en-tête de journée reste visible pendant qu'on parcourt la journée : sur une page de
+   cinquante lignes, on ne sait plus quel jour on lit sans remonter. */
+/* L'en-tête de journée. Il reste collé en haut pendant qu'on parcourt la journée : sur une page
+   de cinquante lignes, on ne sait plus quel jour on lit sans remonter. Il lui faut donc un fond
+   opaque — et assez de présence pour se lire comme un séparateur plutôt que comme une ligne
+   grise perdue entre deux opérations. */
+.transaction-day { position: sticky; top: 0; z-index: 2; background: var(--card); border-bottom: 1px solid var(--line); }
+
+@media (max-width: 640px) {
+  .reclassify { grid-template-columns: 1fr; }
+}
+.empty { color: var(--muted); }
+.chat { display: grid; gap: var(--s3); }
+.chat-thread { display: grid; gap: var(--s3); align-content: start; min-height: 320px; max-height: 58vh; overflow-y: auto; padding: var(--s4); background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-sm); }
+.chat-message { max-width: 78%; padding: 11px var(--s3); border-radius: var(--r-md); line-height: 1.5; font-size: .9rem; white-space: pre-wrap; }
+.chat-user { justify-self: end; background: var(--invert-bg); color: var(--invert-ink); border-bottom-right-radius: var(--s1); }
+.chat-assistant { justify-self: start; background: var(--sunken); color: var(--ink); border-bottom-left-radius: var(--s1); }
+.chat-pending { color: var(--muted); font-style: italic; }
+/* Curseur d'écriture : signale que le texte continue d'arriver. */
+.chat-caret { display: inline-block; width: 2px; height: 1em; margin-left: 2px; vertical-align: text-bottom; background: var(--green); }
+@media (prefers-reduced-motion: no-preference) {
+  .chat-caret { animation: chat-blink 1s steps(2, start) infinite; }
+  @keyframes chat-blink { 50% { opacity: 0; } }
+}
+.chat-empty { display: grid; gap: var(--s3); color: var(--muted); font-size: .86rem; }
+.chat-suggestions { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.chat-suggestion { border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: var(--r-pill); padding: 8px 13px; font-size: .82rem; cursor: pointer; }
+.chat-suggestion:hover:not(:disabled) { border-color: var(--green); color: var(--green); }
+.chat-suggestion:disabled { opacity: .5; cursor: default; }
+.chat-form { display: grid; grid-template-columns: 1fr auto; gap: var(--s2); }
+.chat-form input { border: 1px solid var(--line); background: var(--card); border-radius: var(--r-md); padding: 12px var(--s3); color: var(--ink); min-width: 0; }
+.chat-note { color: var(--muted); font-size: .74rem; margin: 0; line-height: 1.5; }
+
+/* Les opérations que l'assistant montre sous sa réponse.
+   Une liste de lignes et non des cartes : contenu homogène qu'on compare du regard, exactement
+   le cas où la carte encombre. Le montant est en chiffres tabulaires, aligné à droite — c'est
+   la colonne qu'on parcourt. */
+.chat-shown { display: grid; gap: var(--s3); padding: var(--s4); background: var(--sunken); border-radius: var(--r-md); }
+.chat-shown-title { color: var(--muted); font-size: .68rem; font-weight: 650; letter-spacing: .07em; text-transform: uppercase; }
+.chat-shown ul { list-style: none; margin: 0; padding: 0; }
+.chat-shown li { border-top: 1px solid var(--line); }
+.chat-shown li:first-child { border-top: 0; }
+.chat-shown a {
+  display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; align-items: baseline; gap: var(--s3);
+  padding: 10px 0; color: var(--ink); text-decoration: none; font-size: .88rem;
+}
+.chat-shown a:hover .chat-shown-merchant { text-decoration: underline; }
+.chat-shown-date { color: var(--muted); font-size: .76rem; white-space: nowrap; }
+.chat-shown-merchant em { font-style: normal; color: var(--muted); font-weight: 500; }
+.chat-shown-merchant { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 550; }
+.chat-shown-amount { font-variant-numeric: tabular-nums; font-weight: 650; white-space: nowrap; }
+.chat-shown-hint { color: var(--muted); font-size: .76rem; line-height: 1.5; margin: 0; }
+/* `justify-self` seul ne suffit pas : le bouton se réduit au contenu puis enroule son texte
+   sur trois lignes. C'est `nowrap` qui décide de la largeur, pas la grille. */
+.chat-shown .small-button { justify-self: start; white-space: nowrap; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skeleton { background: var(--sunken); border-radius: var(--r-sm); }
+.skeleton-brand { width: 92px; height: 26px; }
+.skeleton-nav { width: 168px; height: 20px; }
+.skeleton-title { width: min(320px, 60%); height: 26px; margin-bottom: var(--s5); }
+.skeleton-panel { height: 86px; border-radius: var(--r-lg); margin-bottom: var(--s4); }
+.skeleton-label { width: 44%; height: 11px; margin-bottom: var(--s3); }
+.skeleton-value { width: 62%; height: 30px; }
+.skeleton-chart { height: 168px; }
+.skeleton-row { height: 15px; margin: var(--s3) 0; }
+.skeleton-row:nth-child(3) { width: 88%; }
+.skeleton-row:nth-child(4) { width: 71%; }
+.skeleton-row:nth-child(5) { width: 80%; }
+@media (prefers-reduced-motion: no-preference) {
+  .skeleton { animation: skeleton-pulse 1.4s ease-in-out infinite; }
+  @keyframes skeleton-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+}
+.amount-origin { display: block; color: var(--muted); font-weight: 500; font-size: .72rem; text-align: right; margin-top: 1px; }
+.user-email { color: var(--muted); font-size: .72rem; }
+/* Système de boutons unifié.
+   Chaque variante avait sa propre taille, son propre rayon, et seules certaines réagissaient
+   au survol : un bouton semblait cliquable ou non selon l'endroit. Base commune ci-dessous,
+   variantes ensuite ; les noms de classes existants sont conservés. */
+.primary, .filter-button, .secondary-button, .small-button, .danger-button, .primary-link, .chat-suggestion {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s2);
+  border-radius: var(--r-md); font-weight: 650; line-height: 1;
+  cursor: pointer; text-decoration: none; border: 1px solid transparent;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .primary, .filter-button, .secondary-button, .small-button, .danger-button, .primary-link,
+  .chat-suggestion, .secondary-plain, .provider-button, .landing-cta, .text-link {
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease,
+                box-shadow .15s ease, transform .08s ease;
+  }
+  .primary:hover:not(:disabled), .small-button:hover:not(:disabled), .landing-cta:hover,
+  .provider-button:hover:not(:disabled), .secondary-plain:hover {
+    transform: translateY(-1px); box-shadow: var(--shadow-md);
+  }
+  /* Les cartes réagissent aussi, mais à peine : elles ne sont pas cliquables, le relief dit
+     seulement qu'on les survole. Le même déplacement que sur un bouton les ferait passer pour
+     actionnables. */
+  .card:hover { box-shadow: var(--shadow-md); }
+}
+/* Un léger enfoncement au clic : le seul retour tactile dont dispose une interface web. */
+.primary:active, .filter-button:active, .secondary-button:active, .small-button:active, .danger-button:active, .chat-suggestion:active, .secondary-plain:active, .provider-button:active, .landing-cta:active { transform: translateY(1px); box-shadow: var(--shadow-sm); }
+
+.primary, .filter-button, .primary-link { background: var(--green); color: var(--invert-ink); padding: 12px var(--s4); min-height: 44px; }
+.primary:hover:not(:disabled), .filter-button:hover:not(:disabled), .primary-link:hover { background: var(--green-strong); color: var(--invert-ink); }
+.primary-link { margin-top: var(--s3); }
+
+.panel-button { border-color: var(--panel-border); background: transparent; color: var(--panel-ink); padding: 11px var(--s3); min-height: 44px; font-size: .82rem; }
+.panel-button:hover { border-color: var(--panel-ink); background: color-mix(in srgb, var(--panel-ink) 10%, transparent); }
+
+/* Un bouton discret : la page du compte en aligne trois — changer de mot de passe, se
+   déconnecter, revoir la présentation — et aucun n'est l'action principale de la page. Une
+   deuxième déclaration, plus bas dans la feuille, les peignait en --invert-bg : trois pavés
+   quasi noirs, là où la première règle prévoyait l'accent. Ni l'une ni l'autre n'était le bon
+   poids ; elles n'en font plus qu'une. */
+.small-button { background: var(--card); color: var(--ink); border: 1px solid var(--line-strong); padding: 9px var(--s3); min-height: 38px; font-size: .82rem; }
+.small-button:hover:not(:disabled) { background: var(--sunken); border-color: var(--ink-secondary); color: var(--ink); }
+
+.danger-button { background: var(--danger-soft); color: var(--danger); border: 1px solid transparent; padding: 9px var(--s3); min-height: 38px; font-size: .82rem; }
+.danger-button:hover:not(:disabled) { border-color: var(--danger); }
+
+/* Un bouton désactivé doit se lire comme tel avant le clic, pas après. */
+.primary:disabled, .filter-button:disabled, .small-button:disabled, .danger-button:disabled, .chat-suggestion:disabled {
+  opacity: .5; cursor: not-allowed; transform: none;
+}
+.primary:disabled { cursor: wait; }
+
+/* « Se déconnecter » était en gris atténué, presque invisible pour une action irréversible. */
+.text-button { border: 0; background: transparent; color: var(--ink-secondary); cursor: pointer; padding: var(--s2) 0; font-weight: 600; }
+.text-button:hover { color: var(--danger); }
+
+.auth-shell { min-height: 100dvh; display: grid; place-items: center; padding: 20px; }
+.auth-card, .empty-card { width: min(440px, 100%); background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(24px, 8vw, 42px); box-shadow: var(--shadow-md); }
+.auth-card h1, .empty-card h1 { font-weight: 700; letter-spacing: -.032em; margin-top: 32px; font-size: 2rem; line-height: 1.14; }
+.auth-card > p, .empty-card > p { color: var(--muted); line-height: 1.55; }
+/* Le formulaire de connexion suit le même système que le reste : ses intitulés étaient en
+   minuscules discrètes quand ceux des filtres sont en capitales espacées, et son rayon valait
+   12 px là où le jeton en vaut 8. Deux traitements d'un même objet dans une même application
+   se remarquent, même sans savoir lequel on regarde. */
+.auth-form { display: grid; gap: var(--s3); margin-top: 26px; }
+/* L'intitulé n'enveloppe pas son champ ici : la marge négative le rapproche du sien, pour que
+   l'espacement entre deux groupes reste plus grand que celui d'un groupe. */
+.auth-form label { margin-bottom: -7px; color: var(--muted); font-size: .72rem; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; }
+
+/* Connexion par fournisseur. Placée avant le formulaire email : c'est le chemin le plus court
+   pour presque tout le monde, et il évite l'aller-retour par email sur chaque nouvel appareil. */
+.provider-group { margin-top: 28px; }
+.provider-form { display: grid; gap: 10px; }
+.provider-button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 46px; padding: 12px var(--s4); border: 1px solid var(--line-strong); border-radius: var(--r-lg); background: var(--card); color: var(--ink); font-size: .9rem; font-weight: 600; cursor: pointer; }
+.provider-button:hover:not(:disabled) { background: var(--sunken); border-color: var(--ink-secondary); }
+.provider-button:disabled { opacity: .55; cursor: progress; }
+.provider-mark { width: 18px; height: 18px; flex: none; }
+
+/* Le filet porte le mot : sans lui, les deux moyens de connexion se lisent comme une seule
+   liste, et l'email paraît un troisième fournisseur. */
+.provider-divider { display: flex; align-items: center; gap: var(--s3); margin: var(--s5) 0 0; color: var(--muted); font-size: .76rem; }
+.provider-divider::before, .provider-divider::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+/* Bouton du formulaire email : gris sur la carte claire, et non .secondary-button, dont les
+   couleurs viennent du panneau sombre et deviendraient du blanc sur blanc ici. */
+
+/* Page de compte. Des paires libellé/valeur plutôt que des cartes : ce sont des faits à lire,
+   pas des objets à manipuler. */
+.detail-list { display: grid; gap: 14px; margin: var(--s3) 0 0; }
+.detail-list > div { display: grid; gap: 2px; }
+.detail-list dt { color: var(--muted); font-size: .76rem; }
+.detail-list dd { margin: 0; font-weight: 600; }
+.hint { color: var(--muted); font-size: .78rem; line-height: 1.5; margin: var(--s4) 0 0; }
+.locale-form { display: flex; gap: var(--s2); align-items: center; margin-top: var(--s3); }
+.locale-form[data-auto-submit] .small-button { display: none; }
+
+/* La zone dangereuse est bordée de rouge et rien d'autre ne l'est : c'est le seul endroit de
+   l'application d'où l'on ne revient pas. */
+.danger-zone { border-color: var(--danger-mark); }
+.danger-zone > p { max-width: 68ch; color: var(--ink-secondary); font-size: .88rem; line-height: 1.6; }
+.label-danger { color: var(--danger); }
+.delete-form { display: grid; gap: 10px; margin-top: var(--s4); max-width: 420px; }
+.delete-form label { font-size: .82rem; color: var(--muted); }
+.delete-form label strong { color: var(--ink); font-weight: 600; }
+.delete-form input { border: 1px solid var(--line-strong); border-radius: var(--r-lg); padding: 12px; background: var(--card); color: var(--ink); min-width: 0; }
+.delete-actions { display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; }
+.delete-actions .danger-button:disabled { opacity: .5; cursor: not-allowed; }
+.header .user-email { text-decoration: none; }
+.header .user-email:hover { color: var(--ink); }
+.header .user-email[aria-current="page"] { color: var(--green); }
+
+/* Bascule connexion / création / mot de passe oublié. Des liens et non des boutons : ils
+   changent ce que le formulaire demande, ils ne l'envoient pas. */
+.auth-switch { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s3); margin-top: var(--s2); }
+/* Huit pixels de part et d'autre : le texte fait seize pixels de haut, ce qui ne se vise pas
+   au doigt. Le remplissage vertical seul suffit — élargir horizontalement décalerait le lien
+   de la colonne sur laquelle il s'aligne. */
+.text-link { border: 0; background: none; padding: 8px 0; color: var(--green); font-size: .82rem; font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.text-link:hover { color: var(--green-strong); }
+.password-form { margin-top: var(--s3); max-width: 380px; }
+.card > .small-button { margin-top: var(--s4); }
+.form-error { color: var(--danger); font-size: .84rem; }
+.form-success { color: var(--green); font-size: .84rem; }
+/* Ni un succès ni une erreur : la suppression a bien eu lieu, mais il reste un geste à faire
+   chez la banque. Le vert dirait « c'est fini », le rouge « ça a échoué » ; les deux mentiraient. */
+.form-warning { color: var(--warn); font-size: .84rem; line-height: 1.5; padding: var(--s3); background: var(--warn-soft); border-left: 3px solid var(--warn-mark); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+.empty-card { text-align: center; }
+.empty-card .primary { width: 100%; margin: 14px 0; }
+.empty-icon { display: grid; place-items: center; margin: 32px auto 0; width: 56px; height: 56px; border-radius: 50%; background: var(--green-soft); color: var(--green); font-size: 1.5rem; }
+.privacy-note { font-size: .78rem; }
+.centered-card { margin: 32px auto; }
+/* Panneau des connexions bancaires. Une liste et non plus une ligne : il en tient désormais
+   plusieurs, chacune avec sa propre synchronisation. */
+.banking-card { background: var(--panel-bg); color: var(--panel-ink); border-radius: var(--r-lg); padding: var(--s4) var(--s5); margin-bottom: var(--s4); box-shadow: var(--shadow-md); }
+.banking-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.banking-head > div { display: flex; align-items: center; gap: 10px; }
+.banking-head h2 { font-weight: 650; margin: 0; font-size: 1rem; letter-spacing: -.018em; }
+.banking-card > p, .banking-card small { color: var(--panel-muted); font-size: .82rem; }
+.banking-card > p { margin: var(--s3) 0 0; }
+.sandbox-badge { background: var(--green-soft); color: var(--green); padding: 4px 7px; border-radius: 999px; text-transform: uppercase; letter-spacing: .06em; font-size: .65rem; font-weight: 800; }
+.bank-list { list-style: none; margin: var(--s3) 0 0; padding: 0; display: grid; gap: 2px; }
+/* Un filet entre les lignes plutôt qu'une carte par banque : les connexions se comparent d'un
+   coup d'œil, et une carte chacune donnerait à deux banques le poids visuel de la page entière. */
+.bank-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid color-mix(in srgb, var(--panel-ink) 14%, transparent); }
+.bank-identity { display: grid; gap: 3px; min-width: 0; }
+.bank-identity strong { font-size: .92rem; }
+.bank-identity small { display: block; }
+.bank-row-actions { flex-shrink: 0; display: flex; gap: 9px; }
+.bank-row-actions form { display: flex; }
+.sync-control { display: grid; gap: 5px; text-align: center; }
+.sync-control small { max-width: 220px; color: var(--panel-muted); font-size: .72rem; }
+/* Deux boutons secondaires, et il en fallait deux.
+   .panel-button ne vaut que sur le bandeau bancaire sombre : il tire son encre de --panel-ink,
+   blanc en thème clair. Il portait le nom générique, et servait donc ailleurs — la pagination
+   des transactions était en blanc sur blanc, invisible jusqu'à ce qu'on passe la souris dessus.
+   .secondary-button est désormais celui qui tient sur n'importe quel fond. */
+.panel-button { display: inline-flex; align-items: center; border: 1px solid var(--panel-border); background: transparent; border-radius: var(--r-md); padding: 11px var(--s3); color: var(--panel-ink); text-decoration: none; font-size: .82rem; font-weight: 650; cursor: pointer; }
+.secondary-button, .secondary-plain { display: inline-flex; align-items: center; justify-content: center; gap: var(--s2); border: 1px solid var(--line-strong); background: var(--card); color: var(--ink); border-radius: var(--r-md); padding: 11px var(--s4); min-height: 44px; font-weight: 650; font-size: .84rem; text-decoration: none; cursor: pointer; }
+.secondary-button:hover, .secondary-plain:hover { border-color: var(--ink-secondary); background: var(--sunken); }
+.bank-error { color: var(--danger) !important; }
+.card-heading a, .empty a { color: var(--green); text-decoration: none; font-size: .84rem; font-weight: 650; }
+.card-heading { display: flex; align-items: center; justify-content: space-between; }
+.budget-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.add-budget-card { display: grid; grid-template-columns: minmax(180px, .75fr) 2fr; gap: var(--s5); background: var(--green-soft); border: 1px solid var(--green-border); border-radius: var(--r-lg); padding: var(--s5); margin-bottom: var(--s4); }
+.add-budget-card h2 { font-size: 1.25rem; margin: 3px 0 5px; }
+.add-budget-card p { color: var(--muted); font-size: .84rem; margin: 0; line-height: 1.45; }
+.add-budget-form { display: grid; grid-template-columns: 1.3fr .65fr 1fr auto; gap: 10px; align-items: end; }
+.add-budget-form .field { display: grid; gap: 5px; }
+.add-budget-form label { display: grid; gap: 5px; color: var(--muted); font-size: .75rem; }
+.budget-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--s4); box-shadow: var(--shadow-sm); }
+.budget-head, .budget-stats, .budget-actions, .budget-actions form, .budget-summary, .budget-summary div { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.budget-head div { display: grid; gap: 4px; }
+.budget-head span, .budget-stats, .budget-summary small { color: var(--muted); font-size: .78rem; }
+.budget-progress { height: 7px; background: var(--sunken); border-radius: var(--r-pill); overflow: hidden; margin: var(--s4) 0; }
+.budget-progress span { display: block; height: 100%; background: var(--green); border-radius: inherit; }
+.budget-stats span { display: grid; gap: 3px; }
+.budget-stats span:last-child { text-align: right; }
+.budget-stats strong { color: var(--ink); font-size: .92rem; }
+.budget-actions { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 14px; }
+.budget-actions form:first-child { flex: 1; }
+.budget-actions input { min-width: 0; width: 100%; border: 1px solid var(--line); border-radius: var(--r-md); padding: 9px; }
+.budget-summary { padding: 11px 0; border-bottom: 1px solid var(--line); }
+.budget-summary:last-child { border-bottom: 0; }
+.budget-summary div { align-items: flex-end; flex-direction: column; gap: 2px; }
+.budget-warning .budget-progress span { background: var(--warn-mark); }
+.budget-warning .budget-head b, .budget-summary.budget-warning strong { color: var(--warn); }
+.budget-over { border-color: var(--danger-mark); }
+.budget-over .budget-progress span { background: var(--danger-mark); }
+.budget-over .budget-head b, .budget-summary.budget-over strong { color: var(--danger); }
+
+/* Budgets dépassés. Le rouge est celui des cartes de budget, à dessein : l'alerte et la carte
+   vers laquelle elle mène se répondent au lieu de former deux langages. */
+.alerts { display: grid; gap: 8px; margin-bottom: 18px; }
+.alert { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--danger-mark); border-radius: var(--r-md); background: var(--danger-soft); color: var(--ink); text-decoration: none; font-size: .86rem; }
+.alert-mark { flex: none; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--danger-mark); color: #fff; font-weight: 700; font-size: .78rem; line-height: 1; }
+.alert-text { display: grid; gap: 2px; min-width: 0; }
+.alert-text strong { font-size: .8rem; letter-spacing: .02em; }
+.alert-text span { color: var(--muted); }
+.alert-go { margin-left: auto; flex: none; color: var(--muted); }
+.alert:hover .alert-go { color: var(--ink); }
+
+/* Rappel de la dépense habituelle sous un budget. Discret par défaut : c'est un repère, pas un
+   verdict. Il ne prend l'ambre que lorsqu'il contredit la limite fixée — le seul cas où il
+   demande une décision. */
+.budget-habit { margin: 6px 0 0; color: var(--muted); font-size: .76rem; line-height: 1.45; }
+/* Les styles de l'atelier de catégorisation ont été retirés avec la page : listes de marchands,
+   règles, rapport d'audit et formulaires de reclassement. Ils ne servaient qu'à elle, et un style
+   sans écran est un style qu'on relit en se demandant ce qu'il tenait. */
+
+@media (max-width: 720px) {
+  /* La barre de navigation passe en bas, dans la zone du pouce — c'est le repère des
+     applications bancaires mobiles, et le haut de l'écran y est le moins accessible. */
+  .shell { padding-top: calc(18px + env(safe-area-inset-top)); padding-bottom: calc(var(--tabbar) + var(--s4)); }
+
+  /* --- L'en-tête sur téléphone ----------------------------------------------------------
+     Sélecteur de thème, adresse et déconnexion réclamaient ensemble plus que la largeur de
+     l'écran : « Se déconnecter » en sortait, coupé net, sur toutes les pages. L'adresse cède
+     la place à son initiale — on connaît sa propre adresse — et la déconnexion rejoint la page
+     du compte, où vivent déjà les autres actions de compte. */
+  .header { gap: var(--s2); padding-bottom: var(--s2); margin-bottom: var(--s4); }
+  .header-account { gap: var(--s2); }
+  .header-account .user-email, .header-signout { display: none; }
+  .user-initial {
+    display: grid; place-items: center; width: 36px; height: 36px; flex: none;
+    border-radius: 50%; background: var(--green-soft); color: var(--green);
+    font-weight: 700; font-size: .82rem; text-decoration: none;
+    transition: background-color .15s ease;
+  }
+  .user-initial:hover, .user-initial[aria-current="page"] { background: var(--green-border); }
+  .brand { font-size: 1.25rem; }
+
+  /* Le titre d'une carte et son annotation ne tiennent pas côte à côte : le titre passait sur
+     deux lignes et venait buter contre la date. */
+  .card-heading { flex-wrap: wrap; gap: var(--s1) var(--s3); }
+
+  /* --- Les graphiques ------------------------------------------------------------------
+     Le dessin est en unités de son viewBox et se réduit avec le cadre : sur 390 px, une
+     étiquette de 10 px s'affiche à cinq, et un trait de 2 px à un. Les valeurs sont donc
+     grossies dans le repère du dessin pour que leur taille à l'écran reste la même. */
+  .chart-axis { font-size: 19px; }
+  .chart-line { stroke-width: 3.5; }
+  .chart-grid, .chart-crosshair { stroke-width: 1.8; }
+  .chart-grid { stroke-dasharray: 3 6; }
+  .chart-axis-tag { font-size: .68rem; }
+  .chart-zero { stroke-width: 2.5; }
+  .chart-line-estimated { stroke-dasharray: 2.5 5; }
+  .chart-line-projected { stroke-dasharray: 14 9; }
+  .chart-today { stroke-width: 2; stroke-dasharray: 4 5; }
+
+  /* --- Les indicateurs -------------------------------------------------------------------
+     Empilés en pleine largeur, ils occupaient trois écrans à eux seuls pour trois nombres. */
+  .metric { padding: var(--s3) var(--s4); }
+  .metric .value { font-size: 1.7rem; }
+  .metric:first-of-type .value { font-size: 2rem; }
+
+  /* --- Les cibles tactiles ----------------------------------------------------------------
+     Mesurées sur un écran de 390 px : le sélecteur de thème offrait trois cibles de 26 × 21,
+     l'initiale du compte 36 × 36, les boutons secondaires 38 de haut. Un doigt couvre environ
+     quarante-cinq pixels ; en dessous, on vise, on manque, et on recommence.
+
+     La hauteur seule ne suffit pas : c'est la zone atteignable qui compte, d'où le remplissage
+     plutôt qu'une hauteur imposée qui laisserait le texte flotter au milieu d'un grand vide. */
+  .theme-option { min-width: 44px; min-height: 40px; display: grid; place-items: center; font-size: .95rem; }
+  .theme-toggle { padding: 3px; }
+  /* Trois cibles tactiles réglementaires font cent quarante pixels : dans un en-tête de trois
+     cent quatre-vingt-dix, c'est plus que tout le reste réuni pour un réglage qu'on choisit une
+     fois. Il reste accessible, dans les réglages, avec la langue. */
+  .header .theme-toggle { display: none; }
+  .user-initial { width: 42px; height: 42px; font-size: .9rem; }
+  .small-button, .danger-button { min-height: 44px; padding: 11px var(--s4); }
+  .brand { padding: var(--s1) 0; }
+  /* Un lien seul dans un en-tête de carte — « Gérer » — n'offrait que seize pixels de haut. */
+  .card-heading a { min-height: 40px; display: inline-flex; align-items: center; }
+
+  /* Le formulaire de suppression déborde de sa carte : sa largeur maximale de 420 px dépasse
+     ce qu'un téléphone laisse une fois retirés les marges de page et de carte. */
+  .delete-form { max-width: 100%; }
+  .delete-actions { flex-wrap: wrap; }
+  .delete-actions > * { flex: 1 1 auto; }
+
+  /* Trois colonnes de correction ne tiennent pas : le nom, la liste et le bouton s'empilent. */
+
+  /* L'ordre de peinture, rendu explicite. Le résumé d'une opération est positionné pour porter
+     son chevron ; un élément positionné se peint au-dessus de ceux qui ne le sont pas, et le
+     panneau déplié, lui, ne l'était pas. */
+  .transaction-panel { position: relative; z-index: 1; }
+  /* La marque et le compte gardent le haut ; seule la navigation descend. Auparavant la
+     déconnexion figurait dans cette barre, entre deux onglets : une action irréversible n'a
+     rien à faire à l'endroit où le pouce navigue. */
+  .header { gap: var(--s3); }
+  .main-nav {
+    position: fixed; inset: auto 0 0 0; z-index: 20;
+    justify-content: space-around; gap: 0;
+    background: var(--card); border-top: 1px solid var(--line);
+    padding: var(--s1) var(--s2) calc(var(--s1) + env(safe-area-inset-bottom));
+    min-height: var(--tabbar);
+    box-shadow: 0 -2px 14px -8px rgba(23, 33, 27, .3);
+  }
+  /* 44px : la cible tactile minimale recommandée. Les liens faisaient environ 20px de haut. */
+  .main-nav a { display: flex; align-items: center; min-height: 44px; padding: 0 var(--s2); font-size: .74rem; border-radius: var(--r-sm); }
+  .main-nav .nav-long { display: none; }
+  .main-nav .nav-short { display: inline; }
+  /* La pastille sombre du bureau pèserait trop sur une barre déjà posée sur fond clair. */
+  .main-nav a[aria-current="page"], .main-nav a[aria-current="page"]:hover { background: var(--green-soft); color: var(--green); }
+
+  /* Quatre colonnes sur 375px débordaient : le nom sur sa ligne, les annotations en dessous. */
+  .balance-row { grid-template-columns: 1fr auto; gap: var(--s1) var(--s3); }
+  .balance-row .balance-name { grid-column: 1; }
+  .balance-row strong { grid-column: 2; grid-row: 1; }
+  .balance-row .balance-secondary { grid-column: 1 / -1; }
+  .balance-row .balance-secondary:empty { display: none; }
+
+  .chat-thread { max-height: 52vh; padding: var(--s3); }
+  .chat-message { max-width: 88%; }
+  .chat-suggestion { min-height: 44px; display: inline-flex; align-items: center; }
+  .chat-form input { padding: 13px var(--s3); }
+
+  .trend-bars { gap: var(--s1); min-height: 130px; }
+  .trend-column { height: 84px; }
+  .trend-value { font-size: .64rem; }
+  .filter-button { grid-column: 1 / -1; }
+  .budget-list { grid-template-columns: 1fr; }
+  .add-budget-card { grid-template-columns: 1fr; gap: 16px; }
+  .add-budget-form { grid-template-columns: 1fr 1fr; }
+  .add-budget-form label:first-child, .add-budget-form .primary { grid-column: 1 / -1; }
+  /* La marque et le compte tiennent une ligne, les onglets la suivante — et défilent
+     horizontalement plutôt que de se replier sur trois lignes. */
+  .header { flex-wrap: wrap; gap: var(--s3); }
+  .main-nav { order: 3; width: 100%; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+  .main-nav::-webkit-scrollbar { display: none; }
+  .header-account { margin-left: auto; }
+  .header-account .user-email { max-width: 130px; }
+  /* Sur mobile, le nom de la banque et son bouton s'empilent : côte à côte, le nom se tronque
+     avant que le bouton n'atteigne une taille tapable. */
+  .banking-head { align-items: stretch; flex-direction: column; gap: 12px; }
+  .banking-head .primary, .banking-head .panel-button { justify-content: center; width: 100%; }
+  .bank-row { align-items: stretch; flex-direction: column; gap: 10px; }
+  .bank-row-actions .primary, .bank-row-actions .panel-button, .bank-row-actions button { justify-content: center; width: 100%; }
+  .secondary-button { justify-content: center; }
+  .metric, .wide, .side { grid-column: 1 / -1; }
+  .metric { grid-column: span 6; }
+  .metric:first-of-type { grid-column: 1 / -1; }
+  .bar-row { grid-template-columns: 92px 1fr auto; }
+}
+
+/* ── Site vitrine ─────────────────────────────────────────────────────────────────────────────
+   Rythme différent de l'application : des colonnes de texte étroites, des respirations larges,
+   et une seule action répétée. Une page qu'on lit, alors que l'application se consulte.
+
+   L'ossature est celle qu'emploient les services financiers établis, et elle tient en deux
+   décisions. La première : une seule mesure de colonne, répétée par la liste ci-dessous, pour
+   que le logo, un titre de section et un lien de pied de page tombent tous sur la même
+   verticale — c'est cet alignement qui distingue une page tenue d'une suite de blocs. La
+   seconde : le fond des bandes traverse toute la fenêtre alors que leur contenu reste dans la
+   colonne, ce qui suppose que <main> ne borne rien et que chaque bande porte sa propre marge.
+   Un conteneur unique à 1 120 px rendrait le premier point mais interdirait le second. */
+.landing { min-height: 100dvh; display: flex; flex-direction: column; background: var(--paper); color: var(--ink); }
+.landing main { width: 100%; flex: 1; }
+
+.landing-bar-inner, .landing-hero, .landing-banks, .landing-section,
+.landing-security-inner, .landing-final-inner, .landing-footer-inner {
+  width: min(1120px, 100%); margin-inline: auto; padding-inline: var(--s5);
+}
+
+/* La barre suit le défilement : sur une page qui fait sept écrans, l'action principale ne doit
+   pas être une chose qu'on remonte chercher. Le fond est translucide et flouté pour que le
+   contenu qui passe dessous se devine — sinon la barre paraît décollée de la page. */
+.landing-bar { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--paper) 86%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.landing-bar-inner { display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); padding-block: 11px; }
+.landing-nav { display: flex; gap: clamp(14px, 2.4vw, 28px); margin-right: auto; }
+.landing-nav a { color: var(--ink-secondary); text-decoration: none; font-size: .88rem; font-weight: 550; padding: 5px 0; border-bottom: 1.5px solid transparent; }
+.landing-nav a:hover { color: var(--ink); border-bottom-color: var(--line-strong); }
+/* La rubrique en cours de lecture. Le soulignement et l'encre changent tous deux : la couleur
+   seule ne dit rien à qui ne la distingue pas. */
+.landing-nav a[aria-current="true"] { color: var(--ink); font-weight: 650; border-bottom-color: var(--green); }
+
+/* Le défilement doux ne vaut que si l'ancre s'arrête sous la barre collante — sinon elle
+   emmène le titre visé derrière celle-ci, et on croit avoir manqué la section. */
+.landing [id] { scroll-margin-top: 76px; }
+:root[data-landing-scrolled="true"] .landing-bar { box-shadow: 0 1px 12px -4px rgba(0, 0, 0, .18); }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Sur la seule page vitrine : dans l'application, un défilement animé retarderait le retour
+     en haut de liste après un filtre. */
+  html:has(.landing) { scroll-behavior: smooth; }
+  .landing-nav a, .landing-bar { transition: color .18s ease, border-color .18s ease, box-shadow .2s ease; }
+  .landing-why-clair { transition: border-color .18s ease, box-shadow .18s ease; }
+  .landing-ask-more li { transition: border-color .18s ease, color .18s ease; }
+  .landing-faq-list summary::after { transition: transform .22s ease; }
+}
+.landing-bar-actions { display: flex; align-items: center; gap: var(--s3); }
+.landing-signin { color: var(--ink-secondary); text-decoration: none; font-size: .88rem; font-weight: 600; padding: 9px 18px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); white-space: nowrap; }
+.landing-signin:hover { border-color: var(--ink); color: var(--ink); }
+
+/* Deux colonnes : la promesse à gauche, le produit à droite. Il était trois sections plus bas,
+   et le visiteur devait lire pour savoir de quoi on parlait — sur une application financière,
+   voir l'écran vaut trois paragraphes. */
+.landing-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.06fr); gap: clamp(28px, 4vw, 56px); align-items: center;
+  padding-block: clamp(40px, 6vw, 84px) clamp(32px, 5vw, 56px); }
+.landing-hero-copy { min-width: 0; }
+.landing-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s5); margin-top: var(--s5); }
+.landing-hero-actions .landing-cta { margin-top: 0; }
+/* Une seconde issue pour qui n'est pas prêt à créer un compte : sans elle, le seul geste
+   possible depuis le premier écran engage, et celui qui hésite repart. */
+.landing-cta-ghost { display: inline-flex; align-items: center; padding: 13px 2px; color: var(--ink-secondary); font-weight: 600; font-size: .92rem; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+.landing-cta-ghost:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.landing-eyebrow { color: var(--green); font-size: .76rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 var(--s4); }
+.landing-hero h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.05; letter-spacing: -.038em; font-weight: 700; margin: 0; max-width: 15ch; text-wrap: balance; }
+.landing-lead { max-width: 54ch; color: var(--ink-secondary); font-size: clamp(1.02rem, 2.2vw, 1.18rem); line-height: 1.62; margin: var(--s5) 0 0; }
+.landing-cta { display: inline-flex; align-items: center; justify-content: center; margin-top: var(--s5); padding: 15px var(--s6); border-radius: var(--r-sm); background: var(--green); color: var(--invert-ink); text-decoration: none; font-weight: 650; font-size: .96rem; }
+.landing-cta:hover { background: var(--green-strong); }
+/* Doit suivre .landing-cta : même spécificité, l'ordre décide. */
+.landing-cta-small { margin-top: 0; padding: 9px 17px; font-size: .88rem; white-space: nowrap; }
+.landing-note { color: var(--muted); font-size: .82rem; line-height: 1.55; margin: var(--s4) 0 0; max-width: 52ch; }
+
+/* Trois repères sous le titre, et seulement ceux qui se vérifient. Un compteur d'utilisateurs
+   ou une note d'App Store se prouvent aussi ; ici, ce qui se prouve est la couverture, le
+   régime d'accès et le lieu d'hébergement. Le carré plein remplace la coche : la coche promet,
+   le carré énumère. */
+.landing-trust { grid-column: 1 / -1; list-style: none; display: flex; flex-wrap: wrap; gap: var(--s3) clamp(20px, 3vw, 38px); margin: clamp(32px, 5vw, 48px) 0 0; padding: var(--s5) 0 0; border-top: 1px solid var(--line); }
+.landing-trust li { display: flex; align-items: center; gap: 9px; color: var(--ink-secondary); font-size: .86rem; font-weight: 550; }
+.landing-trust li::before { content: ""; width: 7px; height: 7px; background: var(--green); flex: none; }
+
+.landing-section { padding-block: clamp(44px, 6vw, 76px); border-top: 1px solid var(--line); }
+.landing-section h2 { font-size: clamp(1.45rem, 3.4vw, 1.95rem); letter-spacing: -.03em; font-weight: 700; margin: 0 0 var(--s6); text-wrap: balance; }
+/* Un chapeau suit le titre de près : les trente-six pixels prévus pour un titre seul lui
+   feraient perdre son rattachement. */
+.landing-section h2:has(+ .landing-section-lead) { margin-bottom: var(--s3); }
+.landing-section-lead { max-width: 60ch; color: var(--ink-secondary); font-size: 1.02rem; line-height: 1.62; margin: 0 0 var(--s6); }
+
+/* L'opposition qui porte le positionnement. Une liste de fonctionnalités ne répond pas à
+   « pourquoi pas l'application de ma banque ? » ; le relevé brut posé à côté de ce que Clair en
+   fait, si — et il n'y a rien à lire pour le comprendre. */
+.landing-why h2 { margin-bottom: var(--s2); max-width: 24ch; }
+.landing-why-answer { font-size: clamp(1.4rem, 3.2vw, 1.9rem); font-weight: 700; letter-spacing: -.03em; color: var(--green); margin: 0 0 var(--s6); max-width: 24ch; text-wrap: balance; }
+.landing-why-panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: var(--s4); align-items: start; }
+.landing-why-raw, .landing-why-clair { display: grid; gap: var(--s3); align-content: start; padding: clamp(16px, 2.4vw, 22px); border: 1px solid var(--line); border-radius: var(--r-md); }
+/* Le relevé est en creux et le panneau de Clair en relief : lequel des deux on préfère ne se
+   dit pas, il se voit. */
+.landing-why-raw { background: var(--sunken); }
+.landing-why-clair { background: var(--card); border-color: var(--green-border); box-shadow: var(--shadow-md); }
+.landing-panel-label { color: var(--muted); font-size: .68rem; font-weight: 650; letter-spacing: .07em; text-transform: uppercase; }
+.landing-why-raw ul { list-style: none; margin: 0; padding: 0; }
+.landing-why-raw li { display: flex; justify-content: space-between; gap: var(--s3); padding: 9px 0; border-top: 1px solid var(--line); color: var(--ink-secondary); font-size: .84rem; font-variant-numeric: tabular-nums; }
+.landing-why-raw li:first-child { border-top: 0; }
+.landing-why-raw li span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.landing-why-headline { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s3); margin: 0; }
+.landing-why-headline strong { font-size: 1.05rem; font-weight: 650; }
+.landing-why-headline em { font-style: normal; font-size: 1.5rem; font-weight: 700; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.landing-why-period { color: var(--muted); font-size: .76rem; margin-top: -8px; }
+.landing-why-clair ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); }
+.landing-why-clair li { position: relative; padding-left: var(--s4); color: var(--ink-secondary); font-size: .9rem; line-height: 1.5; }
+.landing-why-clair li::before { content: ""; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; background: var(--green); }
+
+/* Trois questions plutôt que six fonctionnalités. Une liste de six cartes demande au lecteur de
+   ranger lui-même ce qu'il lit ; trois questions qu'il se pose déjà font ce rangement pour lui. */
+.landing-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(24px, 3vw, 44px); align-items: start; }
+.landing-group { display: grid; gap: var(--s3); align-content: start; }
+.landing-group-eyebrow { color: var(--green); font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.landing-group h3 { font-size: 1.1rem; font-weight: 650; letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+.landing-group ul { list-style: none; margin: var(--s2) 0 0; padding: 0; display: grid; gap: var(--s4); }
+.landing-group li { display: grid; gap: 3px; padding-top: var(--s3); border-top: 1px solid var(--line); }
+.landing-group li strong { font-size: .95rem; font-weight: 650; }
+.landing-group li span { color: var(--ink-secondary); font-size: .88rem; line-height: 1.55; }
+
+/* L'assistant se montre. C'est ce qui distingue Clair d'un tableur, et une phrase d'exemple ne
+   le fait pas comprendre : il faut voir la question et la réponse, avec des chiffres dedans. */
+.landing-ask { display: grid; gap: var(--s3); margin-top: var(--s2); padding: var(--s4); background: var(--sunken); border-radius: var(--r-md); }
+.landing-ask-question { justify-self: end; max-width: 92%; margin: 0; padding: 9px 12px; border-radius: var(--r-md); border-bottom-right-radius: var(--s1); background: var(--invert-bg); color: var(--invert-ink); font-size: .88rem; line-height: 1.45; }
+.landing-ask-answer { justify-self: start; margin: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r-md); border-bottom-left-radius: var(--s1); background: var(--card); color: var(--ink); font-size: .88rem; line-height: 1.52; }
+.landing-ask-more { list-style: none; display: flex; flex-wrap: wrap; gap: var(--s2); margin: 0; padding: 0; }
+.landing-ask-more li { padding: 6px 10px; border: 1px solid var(--line-strong); border-radius: var(--r-pill); color: var(--ink-secondary); font-size: .78rem; }
+.landing-ask .landing-note { margin-top: 0; }
+
+/* Le prix, à l'endroit où on le cherche — il n'avait aucune réponse sur la page, et c'est la
+   troisième question que se pose quelqu'un à qui on demande de connecter sa banque. */
+.landing-price h2 { margin-bottom: var(--s5); }
+.landing-price-amount { font-size: clamp(2.3rem, 5.5vw, 3.2rem); font-weight: 700; letter-spacing: -.04em; line-height: 1; color: var(--green); margin: 0; }
+.landing-price-body { font-size: 1.04rem; color: var(--ink); margin: var(--s4) 0 0; max-width: 48ch; }
+.landing-price-detail { color: var(--ink-secondary); font-size: .92rem; line-height: 1.62; margin: var(--s4) 0 0; max-width: 66ch; }
+
+/* Vingt pixels de trait dans un carré de trente-quatre : le pictogramme ponctue le titre, il ne
+   l'illustre pas. Il prend la couleur d'accent, jamais celle d'un état. */
+.landing-icon { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); color: var(--green); flex: none; }
+
+/* La seule bande sombre de la page. Deux bandes sombres n'attireraient l'œil ni l'une ni
+   l'autre — et celle-ci porte ce qu'un service qui lit des comptes bancaires doit dire en
+   premier. Le fond traverse la fenêtre, le contenu reste dans la colonne. */
+.landing-security { background: var(--panel-bg); color: var(--panel-ink); }
+.landing-security-inner { padding-block: clamp(52px, 7vw, 92px); }
+.landing-security h2 { font-size: clamp(1.45rem, 3.4vw, 1.95rem); letter-spacing: -.03em; font-weight: 700; color: var(--panel-ink); margin: 0 0 var(--s3); text-wrap: balance; }
+.landing-security .landing-section-lead { color: var(--panel-muted); margin-bottom: 0; }
+.landing-security .landing-icon { border-color: var(--panel-border); color: var(--panel-ink); }
+/* Deux colonnes fixes et non un remplissage automatique : quatre éléments dans une grille
+   de trois laissent le quatrième seul sur sa ligne, ce qui se lit comme un oubli. */
+.landing-security-list { list-style: none; margin: var(--s6) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 3.5vw, 40px) clamp(28px, 4vw, 56px); }
+.landing-security-list li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: var(--s4); align-items: start; }
+.landing-security-list h3 { font-size: .98rem; font-weight: 650; color: var(--panel-ink); margin: 6px 0 5px; }
+.landing-security-list p { color: var(--panel-muted); font-size: .9rem; line-height: 1.58; margin: 0; }
+.landing-security-link { display: inline-block; margin-top: clamp(24px, 4vw, 40px); color: var(--panel-ink); text-decoration: none; font-weight: 600; font-size: .92rem; padding: 7px 0 4px; border-bottom: 1px solid var(--panel-border); }
+.landing-security-link:hover { border-bottom-color: var(--panel-ink); }
+
+/* Numérotées parce qu'elles le sont : on connecte avant que ça classe, et ça classe avant qu'on
+   puisse interroger. L'ordre porte une information, il ne décore pas — et c'est la seule liste
+   numérotée de la page, faute de quoi le numéro ne voudrait plus rien dire. */
+.landing-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s6); }
+.landing-steps li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: var(--s4); align-items: start; }
+/* Un carré et non un cercle : le cercle numéroté est la signature des pages produit. */
+.landing-step-index { display: grid; place-items: center; width: 36px; height: 36px; border-radius: var(--r-sm); background: var(--green); color: var(--invert-ink); font-weight: 600; font-size: 1.05rem; }
+.landing-steps h3 { font-size: 1.04rem; font-weight: 650; margin: 5px 0 var(--s2); }
+.landing-steps p { color: var(--ink-secondary); line-height: 1.62; margin: 0; max-width: 62ch; }
+
+/* Les questions qu'on se pose avant de connecter un compte bancaire, et qu'il vaut mieux
+   trouver ici qu'ailleurs. Repliées : la page se termine sur son appel à l'action, pas sur
+   quatre paragraphes de sécurité. */
+.landing-faq-list { display: grid; border-top: 1px solid var(--line); }
+.landing-faq-list details { border-bottom: 1px solid var(--line); }
+.landing-faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: var(--s4); padding: var(--s5) 0; font-size: 1rem; font-weight: 600; cursor: pointer; list-style: none; }
+.landing-faq-list summary::-webkit-details-marker { display: none; }
+.landing-faq-list summary:hover { color: var(--green); }
+/* Un chevron dessiné en bordures : deux traits valent mieux qu'un caractère, dont le dessin
+   change d'une police à l'autre. */
+.landing-faq-list summary::after { content: ""; width: 10px; height: 10px; flex: none; margin-right: 4px; border-right: 1.6px solid var(--muted); border-bottom: 1.6px solid var(--muted); transform: translateY(-3px) rotate(45deg); }
+.landing-faq-list details[open] summary::after { transform: translateY(2px) rotate(225deg); }
+.landing-faq-list p { color: var(--ink-secondary); line-height: 1.68; margin: 0 0 var(--s5); max-width: 74ch; }
+
+/* Une réponse qui apparaît d'un coup fait sauter tout ce qui la suit, et l'œil doit retrouver
+   sa ligne. `::details-content` permet d'animer la hauteur d'un dépliant natif ; il faut pour
+   cela autoriser l'interpolation vers `auto`, ce que fait `interpolate-size`, et laisser la
+   visibilité changer par paliers en fin de course. Là où le navigateur l'ignore, le dépliant
+   fonctionne comme avant — c'est une amélioration, pas une dépendance. */
+@supports selector(::details-content) {
+  @media (prefers-reduced-motion: no-preference) {
+    :root { interpolate-size: allow-keywords; }
+    .landing-faq-list details::details-content {
+      block-size: 0; overflow: hidden;
+      transition: block-size .26s ease, content-visibility .26s allow-discrete;
+    }
+    .landing-faq-list details[open]::details-content { block-size: auto; }
+  }
+}
+
+.landing-final { border-top: 1px solid var(--line); background: var(--sunken); }
+.landing-final-inner { padding-block: clamp(52px, 7vw, 92px); text-align: center; }
+.landing-final h2 { font-size: clamp(1.55rem, 3.6vw, 2.1rem); letter-spacing: -.03em; font-weight: 700; margin: 0 0 var(--s3); text-wrap: balance; }
+.landing-final p { color: var(--ink-secondary); margin: 0 auto; max-width: 46ch; line-height: 1.6; }
+
+/* Les pages légales sont liées d'ici, où on les cherche — et leur présence est aussi ce qu'un
+   classificateur regarde pour décider si un site a un éditeur. */
+.landing-footer { border-top: 1px solid var(--line); }
+.landing-footer-inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr); gap: clamp(28px, 5vw, 64px); padding-block: clamp(36px, 5vw, 56px); }
+.landing-footer-brand p { color: var(--ink-secondary); font-size: .88rem; line-height: 1.55; max-width: 34ch; margin: var(--s3) 0 0; }
+.landing-footer-brand .landing-footer-note { color: var(--muted); font-size: .8rem; }
+.landing-footer-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px, 1fr)); gap: var(--s5) var(--s6); }
+.landing-footer-columns > div { display: grid; gap: 10px; align-content: start; }
+.landing-footer-columns h4 { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 2px; }
+.landing-footer-columns a { color: var(--ink-secondary); font-size: .88rem; text-decoration: none; overflow-wrap: anywhere; }
+.landing-footer-columns a:hover { color: var(--ink); text-decoration: underline; }
+.landing-footer-columns .landing-footer-note { color: var(--muted); font-size: .8rem; line-height: 1.5; margin: 0; }
+
+@media (max-width: 940px) {
+  /* Les ancres de la barre disparaissent avant de se serrer : elles sont reprises en pied de
+     page, et une barre encombrée coûte plus qu'elle ne rend sur un écran de téléphone. */
+  .landing-bar-inner { flex-wrap: wrap; }
+  .landing-nav { display: flex; order: 3; width: 100%; justify-content: space-between; gap: 8px; }
+  .landing-nav a { min-height: 44px; display: inline-flex; align-items: center; font-size: .8rem; }
+  .landing [id] { scroll-margin-top: 140px; }
+  .landing-hero { grid-template-columns: minmax(0, 1fr); gap: var(--s6); }
+  .landing-footer-inner { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 620px) {
+  .landing-steps li { grid-template-columns: 1fr; gap: var(--s3); }
+  .landing-groups, .landing-security-list, .landing-why-panels { grid-template-columns: minmax(0, 1fr); }
+  /* Pleine largeur au doigt, sauf celui de la barre qui partage sa ligne. */
+  .landing-hero-actions { gap: var(--s4); }
+  .landing-hero .landing-cta, .landing-final .landing-cta { width: 100%; }
+  .landing-cta-ghost { width: 100%; justify-content: center; }
+  .landing-bar-actions { flex-wrap: wrap; min-width: 0; }
+  .landing-signin { padding: 9px 13px; }
+  .landing-cta-small { padding: 9px 14px; }
+  .landing-faq-list summary { font-size: .94rem; }
+  /* Deux colonnes de liens tiennent, l'adresse électronique non : à cent quarante-huit pixels
+     elle se coupait au milieu du domaine. Le bloc de contact prend donc la ligne entière.
+     Les liens gagnent aussi de la hauteur — dix-sept pixels ne se visent pas au doigt. */
+  .landing-footer-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .landing-footer-columns > div:last-child { grid-column: 1 / -1; }
+  .landing-footer-columns > div { gap: var(--s3); }
+  .landing-footer-columns a { padding-block: 4px; }
+}
+
+/* ── Bandeau des banques ──────────────────────────────────────────────────────────────────────
+   Les logos sont servis depuis le domaine : une page d'accueil ne doit pas dépendre d'un tiers
+   pour s'afficher. La piste est dupliquée et l'animation parcourt exactement la moitié de sa
+   largeur — c'est ce qui rend la boucle invisible. */
+/* Le bandeau porte désormais un titre de section ordinaire : « Neuf établissements » posait la
+   limite avant la promesse, et le visiteur se demandait si sa banque en était. La question se
+   pose de toute façon — autant lui donner un endroit où la dire. */
+.landing-banks-missing { display: inline-block; margin-top: var(--s5); padding: 7px 0 4px; color: var(--green); font-weight: 600; font-size: .9rem; text-decoration: none; border-bottom: 1px solid var(--green-border); }
+.landing-banks-missing:hover { border-bottom-color: var(--green); }
+.marquee { display: flex; gap: clamp(32px, 5vw, 64px); overflow: hidden; margin: 0 calc(-1 * var(--s5));
+  /* Les extrémités s'estompent, sans quoi la boucle se voit. Le dégradé commence au bord de la
+     zone débordante et non au bord du texte : sinon il mange le premier logo. */
+  mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+}
+.marquee-track { display: flex; align-items: center; gap: clamp(32px, 5vw, 64px); list-style: none; margin: 0; padding: 0 0 0 var(--s5); flex: none; }
+/* Les noms écrits remplacent les logos : voir landing-preview.tsx. Une composition sobre, en
+   petites capitales, qui se lit comme une liste de partenaires et non comme une vitrine. */
+.marquee-track li { flex: none; color: var(--ink-secondary); font-size: .95rem; font-weight: 600; letter-spacing: -.01em; white-space: nowrap; }
+.landing-banks-note { max-width: 64ch; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track { animation: marquee 42s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(calc(-100% - clamp(32px, 5vw, 64px))); } }
+
+/* ── Aperçu du tableau de bord ────────────────────────────────────────────────────────────────
+   Construit avec les formes réelles plutôt qu'une capture : une capture montrerait les comptes
+   de quelqu'un. La mention « Exemple » est visible, pas en note de bas de page. */
+.landing-preview { display: grid; gap: var(--s3); min-width: 0; margin: 0; }
+.landing-preview-caption { color: var(--muted); font-size: .72rem; font-weight: 650; letter-spacing: .07em; text-transform: uppercase; }
+.landing-preview .landing-note { margin-top: 0; }
+.preview-frame { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-md); padding: clamp(16px, 3vw, 26px); display: grid; gap: var(--s4); box-shadow: var(--shadow-md); }
+/* Trois colonnes égales et non un remplissage automatique : à cent quatre-vingts pixels de
+   minimum, la troisième mesure retombait seule sur une deuxième ligne, ce qui se lit comme
+   un déséquilibre plutôt que comme une grille. */
+.preview-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s3); }
+.preview-metric { display: grid; gap: 3px; padding: var(--s4); background: var(--sunken); border-radius: var(--r-sm); }
+.preview-label { color: var(--muted); font-size: .68rem; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; }
+.preview-metric strong { font-size: 1.7rem; font-weight: 700; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.preview-sub { color: var(--muted); font-size: .74rem; line-height: 1.4; }
+/* La courbe du solde, en tête de l'aperçu : c'est le dessin que l'application produit, et le
+   seul élément de la page qui montre à quoi ressemble un mois entier. */
+.preview-balance { gap: var(--s3); }
+.preview-balance-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s3); }
+.preview-balance-head strong { font-size: 1.15rem; font-weight: 700; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.preview-curve { display: block; width: 100%; height: auto; overflow: visible; }
+/* Le dessin est réduit de moitié à l'affichage : le trait doit être épaissi d'autant pour
+   garder l'épaisseur qu'il a dans l'application. */
+.preview-curve .chart-line { stroke-width: 2.6; }
+.preview-charts { display: grid; grid-template-columns: 1.25fr 1fr; gap: var(--s4); }
+.preview-card { border: 1px solid var(--line); border-radius: var(--r-sm); padding: var(--s4); display: grid; gap: var(--s3); align-content: start; }
+.preview-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.preview-bars li { display: grid; grid-template-columns: 84px minmax(0, 1fr) auto; align-items: center; gap: var(--s3); font-size: .8rem; }
+.preview-bar-name { color: var(--ink-secondary); }
+.preview-bar { height: 8px; background: var(--sunken); border-radius: 4px; overflow: hidden; }
+.preview-bar i { display: block; height: 100%; border-radius: 4px; }
+.preview-bar-value { font-variant-numeric: tabular-nums; font-weight: 600; }
+.preview-months { display: flex; align-items: flex-end; gap: 6px; height: 116px; }
+.preview-month { flex: 1; display: grid; gap: 6px; align-content: end; text-align: center; }
+.preview-column { display: block; height: 92px; display: flex; align-items: flex-end; }
+/* Les mêmes dégradés que les barres du tableau de bord : l'aperçu doit être le produit, pas
+   une image du produit. */
+.preview-column i { display: block; width: 100%; border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--green) 45%, transparent), color-mix(in srgb, var(--green) 22%, transparent)); }
+.preview-month-current .preview-column i { background: linear-gradient(180deg, var(--green), color-mix(in srgb, var(--green) 70%, transparent)); }
+.preview-month-label { color: var(--muted); font-size: .7rem; }
+
+@media (max-width: 720px) {
+  .preview-charts { grid-template-columns: 1fr; }
+  .preview-metrics { grid-template-columns: 1fr; }
+  .preview-bars li { grid-template-columns: 72px minmax(0, 1fr) auto; }
+}
+
+/* La fenêtre modale d'accueil et ses schémas ont été retirés d'ici : plus aucun composant ne
+   les emploie depuis que la présentation se fait par éclairage des sections réelles. Un style
+   mort n'est pas neutre — celui-ci gardait un fond fixe en z-index 60, et on le retrouve en
+   cherchant d'où vient un recouvrement qu'il ne cause pas. */
+
+/* ── Guides ───────────────────────────────────────────────────────────────────────────────────
+   Des pages qu'on lit en entier, arrivées le plus souvent par une recherche : une colonne
+   étroite, un interlignage large, et le même en-tête que le site vitrine — quelqu'un qui atterrit
+   ici depuis un moteur ne sait pas encore ce qu'est Clair, et doit pouvoir le découvrir sans
+   revenir en arrière. */
+/* « main.guide » et non « .guide » : la coquille du site vitrine pose « .landing main { width:
+   100% } », deux sélecteurs, qui bat une classe seule et étalait le texte sur toute la largeur
+   de l'écran. À spécificité égale, c'est l'ordre qui tranche, et ce bloc vient après. */
+main.guide { width: min(760px, 100%); margin: 0 auto; padding: clamp(32px, 5vw, 64px) var(--s5) 0; }
+.guide h1 { font-size: clamp(1.9rem, 4.4vw, 2.6rem); line-height: 1.08; letter-spacing: -.035em; font-weight: 700; margin: 0 0 var(--s4); text-wrap: balance; }
+.guide-lead { font-size: clamp(1.02rem, 2.2vw, 1.16rem); line-height: 1.62; color: var(--ink-secondary); margin: 0 0 var(--s6); }
+.guide-crumb { margin-right: auto; color: var(--muted); font-size: .82rem; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+.guide section { margin-top: clamp(32px, 4vw, 48px); padding-top: var(--s5); border-top: 1px solid var(--line); }
+.guide h2 { font-size: clamp(1.25rem, 2.8vw, 1.5rem); font-weight: 700; letter-spacing: -.025em; margin: 0 0 var(--s4); text-wrap: balance; }
+.guide h3 { font-size: 1.02rem; font-weight: 650; margin: 0 0 var(--s2); }
+.guide p { line-height: 1.7; color: var(--ink-secondary); margin: 0 0 var(--s4); }
+.guide p:last-child { margin-bottom: 0; }
+.guide strong { color: var(--ink); font-weight: 650; }
+.guide em { font-style: italic; }
+/* Les liens de texte seulement, et non « .guide a » : à deux sélecteurs, cette règle battait
+   celle du bouton d'appel à l'action — qui se retrouvait écrit en bleu sur fond bleu, donc
+   invisible. Le piège est constant dans cette feuille : une règle de contexte plus spécifique
+   qu'une règle de composant gagne quel que soit l'ordre. */
+.guide p a, .guide-bullets a, .guide-others a { color: var(--green); }
+
+.guide-bullets { list-style: none; margin: 0 0 var(--s4); padding: 0; display: grid; gap: var(--s3); }
+.guide-bullets li { position: relative; padding-left: var(--s5); line-height: 1.65; color: var(--ink-secondary); }
+.guide-bullets li::before { content: ""; position: absolute; left: 0; top: .62em; width: 7px; height: 7px; background: var(--green); }
+
+/* Numérotées parce que l'ordre est réel : on collecte avant de classer, on classe avant de
+   comparer. Ailleurs, la liste est à puces. */
+.guide-steps { list-style: none; margin: 0 0 var(--s4); padding: 0; display: grid; gap: var(--s5); counter-reset: guide-step; }
+.guide-steps li { position: relative; padding-left: 46px; counter-increment: guide-step; }
+.guide-steps li::before { content: counter(guide-step); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 30px; height: 30px; border-radius: var(--r-sm); background: var(--green); color: var(--invert-ink); font-weight: 650; font-size: .92rem; }
+.guide-steps h3 { margin-top: 4px; }
+
+.guide-banks { list-style: none; margin: 0 0 var(--s4); padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--s2) var(--s4); }
+.guide-banks li { padding: 9px 0; border-top: 1px solid var(--line); font-weight: 600; font-size: .94rem; }
+
+.guide-callout { background: var(--green-soft); border-left: 3px solid var(--green); border-radius: 0 var(--r-sm) var(--r-sm) 0; padding: var(--s4); color: var(--ink-secondary); }
+
+.guide-cta { text-align: center; }
+.guide-cta p { max-width: 46ch; margin-inline: auto; }
+.guide-others ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s4); }
+.guide-others li { display: grid; gap: 3px; padding-top: var(--s4); border-top: 1px solid var(--line); }
+.guide-others a { font-weight: 650; font-size: 1rem; text-decoration: none; }
+.guide-others a:hover { text-decoration: underline; }
+.guide-others span { color: var(--ink-secondary); font-size: .9rem; line-height: 1.55; }
+.guide + .landing-footer { margin-top: clamp(48px, 6vw, 80px); }
+
+/* ── Pages légales ────────────────────────────────────────────────────────────────────────────
+   Une colonne étroite et un interlignage large : ces textes se lisent en entier, contrairement
+   au reste de l'application qui se consulte. */
+.legal { width: min(760px, 100%); margin: 0 auto; padding: calc(clamp(28px, 5vw, 56px) + env(safe-area-inset-top)) var(--s5) 96px; color: var(--ink); }
+.legal-back { display: inline-block; color: var(--muted); text-decoration: none; font-size: .88rem; margin-bottom: var(--s5); }
+.legal-back:hover { color: var(--ink); }
+.legal h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 700; letter-spacing: -.032em; margin: 0 0 var(--s3); }
+.legal-updated { color: var(--muted); font-size: .84rem; margin: 0 0 var(--s6); }
+.legal section { margin-top: var(--s6); padding-top: var(--s5); border-top: 1px solid var(--line); }
+.legal h2 { font-size: 1.18rem; font-weight: 650; letter-spacing: -.02em; margin: 0 0 var(--s4); }
+.legal p { line-height: 1.68; color: var(--ink-secondary); margin: 0 0 var(--s4); max-width: 68ch; }
+.legal p:last-child { margin-bottom: 0; }
+.legal strong { color: var(--ink); font-weight: 650; }
+.legal a { color: var(--green); }
+.legal-bullets { margin: 0 0 var(--s4); padding-left: var(--s5); color: var(--ink-secondary); line-height: 1.68; max-width: 68ch; }
+.legal-bullets li { margin-bottom: var(--s3); }
+.legal-list { display: grid; gap: var(--s3); margin: 0; }
+.legal-list > div { display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); gap: var(--s4); }
+.legal-list dt { color: var(--muted); font-size: .88rem; }
+.legal-list dd { margin: 0; }
+/* L'information manquante est signalée plutôt que remplie d'un gabarit à trous : une mention
+   légale qui affiche « [VOTRE NOM] » est un manquement doublé d'un aveu de négligence. */
+.legal-pending { background: var(--warn-soft); border-left: 3px solid var(--warn-mark); padding: var(--s4); border-radius: 0 var(--r-sm) var(--r-sm) 0; color: var(--ink-secondary); }
+.legal-table-scroll { overflow-x: auto; margin: 0 0 var(--s4); }
+.legal-table { width: 100%; border-collapse: collapse; font-size: .88rem; min-width: 640px; }
+.legal-table th { text-align: left; color: var(--muted); font-size: .74rem; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; border-bottom: 1px solid var(--line-strong); padding: 0 var(--s4) var(--s2) 0; }
+.legal-table td { border-bottom: 1px solid var(--line); padding: var(--s3) var(--s4) var(--s3) 0; vertical-align: top; color: var(--ink-secondary); line-height: 1.5; }
+.legal-table td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
+
+
+/* ── Visite guidée ────────────────────────────────────────────────────────────────────────────
+   Tout repose sur un attribut posé sur <html> par le composant. Aucune position n'est calculée :
+   un projecteur positionné en JavaScript se décale au redimensionnement, à l'ouverture du
+   clavier sur mobile, à tout changement de mise en page — et finit par éclairer du vide. Ici
+   c'est l'élément lui-même qui s'éclaire, donc le repère le suit où qu'il aille. */
+
+/* Pendant la visite, tout recule — puis la seule section de l'étape reprend son intensité.
+   Les deux règles ont volontairement la même spécificité, l'ordre décidant laquelle gagne : une
+   première version assombrissait avec un sélecteur plus spécifique que celui qui éclairait, si
+   bien que rien ne s'éclairait jamais. C'est le genre de faute qu'aucune relecture ne montre et
+   qu'un rendu montre en une seconde. */
+:root[data-tour-step] .shell [data-tour],
+:root[data-tour-step] .shell > h1,
+:root[data-tour-step] .shell > .intro,
+:root[data-tour-step] .shell > .filters,
+:root[data-tour-step] .shell > .alerts {
+  opacity: .3; filter: saturate(.35);
+  transition: opacity .45s ease, filter .45s ease, box-shadow .45s ease;
+}
+
+:root[data-tour-step="metrics"] .shell [data-tour="metrics"],
+:root[data-tour-step="balances"] .shell [data-tour="balances"],
+:root[data-tour-step="flows"] .shell [data-tour="flows"],
+:root[data-tour-step="categories"] .shell [data-tour="categories"],
+:root[data-tour-step="budgets"] .shell [data-tour="budgets"],
+:root[data-tour-step="subscriptions"] .shell [data-tour="subscriptions"],
+:root[data-tour-step="nav"] .shell [data-tour="nav"],
+:root[data-tour-step="bank"] .shell [data-tour="bank"] {
+  opacity: 1; filter: none;
+  /* Un liseré plutôt qu'un halo découpé : il suit l'élément où qu'il aille, sans qu'on ait à
+     savoir où il est. */
+  box-shadow: 0 0 0 2px var(--green), 0 0 0 7px color-mix(in srgb, var(--green) 16%, transparent);
+  border-radius: var(--r-md);
+  position: relative; z-index: 45;
+}
+
+/* Le panneau de la visite, posé en bas et fixe : une bulle ancrée à la cible se replacerait à
+   chaque étape, et se retrouverait hors écran sur un téléphone. */
+.tour { position: fixed; inset: auto 0 0 0; z-index: 50; display: grid; place-items: center; padding: var(--s4); pointer-events: none; }
+/* Sur téléphone, la visite se pose au-dessus de la barre d'onglets et non dessus.
+   Les deux étaient collées au bas de l'écran, aux mêmes coordonnées : « Passer », « Précédent »
+   et « Suivant » recouvraient « Accueil », « Dépenses » et « Assistant ». Le panneau, plus haut
+   en z-index, masquait les onglets sans les remplacer — deux rangées de boutons l'une sur
+   l'autre, la seconde inaccessible.
+
+   Cette règle doit venir après celle du dessus : « inset: auto 0 0 0 » y fixe aussi le bas, à la
+   même spécificité, et c'est l'ordre du fichier qui tranche. Placée plus haut, elle était
+   silencieusement réécrite — ce qu'un rendu montre en une seconde et qu'aucune relecture ne
+   montre. */
+@media (max-width: 720px) {
+  .tour { bottom: var(--tabbar); padding-bottom: var(--s2); }
+  /* La carte ne doit pas non plus déborder par le haut sur un téléphone court. */
+  .tour-card { max-height: calc(100svh - var(--tabbar) - var(--s5)); overflow-y: auto; }
+}
+.tour-card { pointer-events: auto; width: min(560px, 100%); background: var(--card); border: 1px solid var(--line-strong); border-radius: var(--r-lg); box-shadow: var(--shadow-lg); padding: var(--s5); display: grid; gap: var(--s3); }
+.tour-progress { color: var(--muted); font-size: .7rem; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; margin: 0; }
+.tour-card h2 { font-weight: 700; font-size: 1.25rem; letter-spacing: -.028em; margin: 0; }
+.tour-body { color: var(--ink-secondary); line-height: 1.6; margin: 0; }
+.tour-actions { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); flex-wrap: wrap; margin-top: var(--s2); }
+.tour-nav { display: flex; gap: var(--s2); margin-left: auto; }
+.tour-dots { list-style: none; display: flex; justify-content: center; gap: 6px; margin: 0; padding: 0; }
+.tour-dots li { width: 6px; height: 6px; border-radius: 50%; background: var(--line-strong); transition: width .3s ease, background .3s ease; }
+.tour-dots li.is-current { background: var(--green); width: 18px; border-radius: 3px; }
+
+/* Le bandeau qui annonce les chiffres d'exemple. Il ne s'estompe jamais : laisser croire, même
+   une seconde, que ces montants sont les siens serait impardonnable sur un service d'argent. */
+.demo-banner { display: flex; align-items: center; gap: var(--s3); margin-bottom: var(--s4); padding: 11px var(--s4); border: 1px dashed var(--warn-mark); background: var(--warn-soft); color: var(--warn); border-radius: var(--r-sm); font-size: .84rem; }
+:root[data-tour-step] .demo-banner { opacity: 1 !important; filter: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-tour-step] .shell > *, :root[data-tour-step] [data-tour], .tour-dots li { transition: none; }
+}
+@media (max-width: 620px) {
+  .tour-card { padding: var(--s4); }
+  .tour-actions { flex-direction: column-reverse; align-items: stretch; }
+  .tour-nav { margin-left: 0; }
+  .tour-nav button { flex: 1; }
+  /* La navigation est en barre fixe basse sur mobile : le panneau doit lui laisser la place. */
+  .tour { bottom: 76px; }
+}
+
+/* ── Le tableau de bord sur téléphone ────────────────────────────────────────────────────────
+   Douze cartes empilées faisaient quatre mille deux cents pixels — cinq écrans — dont cinq cent
+   trente-huit de décor : bordures, remplissages et gouttières, treize pour cent de la page
+   consacrés à séparer des choses qui n'en avaient pas besoin.
+
+   La règle appliquée ici est celle que la littérature répète : une carte sert un contenu
+   hétérogène qu'on parcourt, une liste sert un contenu homogène qu'on compare. Six des douze
+   cartes ne contenaient qu'une liste de lignes identiques — catégories, commerçants, budgets,
+   échéances, prélèvements, transactions. Elles deviennent des sections : un intitulé, un filet,
+   et les lignes elles-mêmes, sans boîte autour.
+
+   Restent en carte les deux blocs qui la méritent : les soldes, qui mêlent un total, des comptes
+   et une courbe, et le bandeau bancaire, qui est un objet à part. */
+@media (max-width: 560px) {
+  /* La gouttière est annulée parce que les sections aplaties portent leur propre marge et leur
+     filet. Les deux blocs restés en carte — les indicateurs et les soldes — n'en ont pas, et se
+     retrouvaient collés l'un à l'autre. Ils gardent donc une gouttière, verticale seulement :
+     les trois indicateurs doivent rester serrés côte à côte. */
+  .grid { column-gap: var(--s2); row-gap: 0; }
+  .grid > .metric { margin-bottom: var(--s3); }
+  .grid > [data-tour="balances"] { margin-bottom: var(--s2); }
+
+  /* Une section plutôt qu'une carte : le filet remplace la bordure, et les seize pixels de
+     remplissage latéral rendus à la ligne profitent aux montants. */
+  .grid > .card:not(.metric):not([data-tour="balances"]) {
+    background: none; border: 0; box-shadow: none; border-radius: 0;
+    padding: var(--s5) 0 0;
+    border-top: 1px solid var(--line);
+    margin-top: var(--s5);
+  }
+  /* Sans boîte autour, c'est l'intitulé qui sépare : il prend du poids, de l'espacement et de
+     l'air sous lui, faute de quoi le titre d'une section paraît appartenir à la précédente. */
+  .grid > .card:not(.metric):not([data-tour="balances"]) > .label,
+  .grid > .card:not(.metric):not([data-tour="balances"]) > .card-heading .label {
+    font-size: .68rem; letter-spacing: .09em; color: var(--ink-secondary); font-weight: 700;
+  }
+  .grid > .card:not(.metric):not([data-tour="balances"]) > .label { margin-bottom: var(--s3); }
+  .grid > .card:not(.metric):not([data-tour="balances"]) > .card-heading { margin-bottom: var(--s3); }
+  .grid > .card:not(.metric):not([data-tour="balances"]):hover { box-shadow: none; border-color: var(--line); }
+
+  /* Les trois indicateurs en bandeau, et non trois cartes pleine largeur : trois nombres courts
+     n'ont besoin ni d'une ligne chacun ni de cent dix pixels de hauteur. */
+  /* Les trois indicateurs forment une seule bande, à hauteur égale.
+     « Dépensé ce mois » tient sur deux lignes, « Reste budgété » sur une, « vs. mois type » sur
+     deux : les cartes prenaient chacune la hauteur de son texte, et les trois montants se
+     retrouvaient à trois hauteurs différentes. L'œil ne peut pas comparer ce qui n'est pas
+     aligné. La grille les étire à la même hauteur, l'intitulé réserve deux lignes qu'il les
+     remplisse ou non, et le montant se pose en bas. */
+  .metric {
+    grid-column: span 4; padding: var(--s3) var(--s2); align-self: stretch;
+    display: flex; flex-direction: column; justify-content: space-between; gap: var(--s2);
+  }
+  .metric .label { font-size: .62rem; letter-spacing: .05em; min-height: 2.3em; align-content: start; }
+  /* Un montant à six chiffres débordait d'une tuile large d'un tiers d'écran, et son symbole se
+     faisait couper — la boîte, elle, tient dans la page, si bien qu'aucune mesure de débordement
+     ne le signalait. La correction est dans le formatage, pas ici : au-delà de dix mille, les
+     centimes tombent. Le retour à la ligne aurait brisé le nombre au milieu de ses chiffres. */
+  .metric .value { font-size: 1.15rem; letter-spacing: -.03em; min-width: 0; }
+  /* Spécificité contre spécificité : une règle plus haut donne au premier indicateur la pleine
+     largeur (.metric:first-of-type, deux sélecteurs), et aucun ordre ne peut la battre avec un
+     sélecteur simple. Il faut la contredire à égalité. */
+  .metric:first-of-type { grid-column: span 4; }
+  .metric:first-of-type .value { font-size: 1.25rem; }
+  /* La ligne d'explication ne tient pas sous un tiers de largeur, et n'y est pas lisible. */
+  .metric .trend { display: none; }
+
+  /* Le rythme des lignes se resserre. Onze à treize pixels de part et d'autre conviennent à une
+     souris qui survole ; un doigt vise la ligne entière, dont la hauteur reste au-dessus de
+     quarante pixels grâce au texte lui-même. */
+  .bar-row, .top-merchant { margin: 7px 0; font-size: .82rem; }
+  .balance-row { padding: 8px 0; }
+  .subscription-row { padding: 8px 0; }
+  .upcoming-row { padding: 7px 0; }
+  .budget-summary { padding: 8px 0; }
+  .transaction { padding: 9px 0; }
+  /* L'en-tête de journée reste collé en haut et doit masquer ce qui défile dessous : son fond
+     valait celui d'une carte, qui n'existe plus ici — il en restait une bande claire en travers
+     de la section. */
+  /* Sur le tableau de bord la section est aplatie : le fond est celui de la page. Ailleurs, la
+     liste vit dans une carte, et l'en-tête doit prendre le fond de la carte — sans quoi il
+     laisse une bande d'une autre couleur en travers de la liste. */
+  .grid .transaction-day { background: var(--paper); }
+  .flow-figure strong { font-size: 1.05rem; }
+
+  /* Les graphiques rendent la hauteur qu'ils ne mettent pas à profit. */
+  .trend-bars { min-height: 104px; }
+  .trend-column { height: 68px; }
+  .chart-caption { font-size: .72rem; }
+  .caption-long { display: none; }
+
+}
+
+/* Le bandeau bancaire, réduit à ce qu'il apprend.
+   Il coûtait deux cent cinquante-six pixels en tête du tableau de bord — plus que n'importe
+   quelle section de données — pour dire qu'une banque va bien. C'est un panneau d'exploitation :
+   il n'a d'intérêt que lorsque quelque chose ne va pas, et le reste du temps il doit tenir sur
+   une ligne. Le titre s'efface, l'ajout d'une banque devient un lien, et la synchronisation
+   redevient un bouton posé au bout de la ligne plutôt qu'un pavé pleine largeur.
+
+   Ce qui alerte, en revanche, garde toute sa place : le message de consentement expiré et le
+   bouton « Reconnecter » restent en pleine largeur. */
+@media (max-width: 560px) {
+  .banking-card { padding: var(--s3) var(--s4); margin-bottom: var(--s3); }
+  .banking-head { flex-direction: row; align-items: center; gap: var(--s3); }
+  .banking-head h2 { font-size: .92rem; }
+  /* « Ajouter une banque » à côté de « Connexions bancaires » fait trois cent trente pixels de
+     texte sur trois cent quatre-vingt-dix, et « Synchroniser maintenant » ne tient pas au bout
+     d'une ligne de banque : les deux s'enroulaient. Le verbe suffit. */
+  .banking-head .nav-long, .sync-control .nav-long { display: none; }
+  .banking-head .nav-short, .sync-control .nav-short { display: inline; }
+  .banking-head .panel-button {
+    width: auto; border: 0; padding: 8px var(--s2); min-height: 40px;
+    text-decoration: underline; text-underline-offset: 3px; font-size: .8rem;
+  }
+  .bank-row { flex-direction: row; align-items: center; gap: var(--s3); padding: 9px 0; }
+  .bank-row-actions button, .bank-row-actions .panel-button { width: auto; padding: 9px var(--s3); min-height: 40px; font-size: .78rem; }
+  /* Une reconnexion n'est pas une action ordinaire : elle reprend la pleine largeur. Visée par
+     sa propre classe, et non par .primary, que porte aussi le bouton de synchronisation — la
+     règle se déclenchait alors sur toutes les lignes et remettait chacune en colonne. */
+  .bank-row .bank-reconnect { width: 100%; }
+  .bank-row:has(.bank-reconnect) { flex-direction: column; align-items: stretch; }
+}
+
+/* Le bouton de repli des filtres. Invisible tant que le composant ne l'a pas monté : sans
+   JavaScript, la barre reste entière et il n'y a rien à replier. */
+.filter-toggle { display: none; }
+
+@media (max-width: 560px) {
+  .filters .filter-toggle {
+    display: inline-flex; align-items: baseline; gap: var(--s2); flex: 1 1 auto;
+    min-height: 44px; padding: 10px var(--s3);
+    background: var(--card); color: var(--ink);
+    border: 1px solid var(--line); border-radius: var(--r-md);
+    font: inherit; font-size: .84rem; cursor: pointer; text-align: left;
+    transition: border-color .15s ease, background-color .15s ease;
+  }
+  .filters .filter-toggle:hover { border-color: var(--line-strong); }
+  .filter-toggle-label { color: var(--muted); font-size: .72rem; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; flex: none; }
+  .filter-toggle-value { color: var(--ink); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 auto; }
+
+  /* Le chevron, sans lequel rien ne dit que ce bouton ouvre quelque chose.
+     Le repli s'annonçait par un intitulé et une valeur — la forme d'un champ, pas celle d'un
+     contrôle qui se déplie. Le même chevron que les listes déroulantes, tourné à l'ouverture :
+     c'est le geste que tout le monde connaît, et il est déjà employé sur les opérations. */
+  .filter-toggle::after {
+    content: ""; flex: none; width: 12px; height: 8px; margin-left: auto;
+    background: var(--select-arrow) no-repeat center / 12px 8px;
+    transition: transform .18s ease;
+  }
+  .filter-toggle[aria-expanded="true"]::after { transform: rotate(180deg); }
+
+  /* Le nombre de filtres posés au-delà du mois. */
+  .filter-toggle-count {
+    flex: none; display: grid; place-items: center; min-width: 20px; height: 20px;
+    padding: 0 6px; border-radius: var(--r-pill);
+    background: var(--green); color: var(--invert-ink); font-size: .7rem; font-weight: 700;
+  }
+  .filters[data-collapsed="on"] .field { display: none; }
+  .filters[data-collapsed="on"] .filter-button { display: none; }
+}
+
+/* L'en-tête des soldes sur téléphone : le total et son intitulé se disputaient la ligne, et
+   « Total EUR · 2 comptes » s'enroulait contre le montant. Ils s'empilent. */
+@media (max-width: 560px) {
+  .balance-total { display: grid; gap: 2px; padding-bottom: var(--s2); }
+  .balance-total strong { font-size: 1.6rem; }
+  .card-heading .balance-secondary { font-size: .72rem; }
+}
+
+/* Les surcharges pour petit écran sont regroupées en fin de feuille, et c'est délibéré :
+   à spécificité égale, c'est l'ordre du fichier qui tranche, et une règle mobile déclarée
+   avant le système de contrôles qu'elle veut réécrire est silencieusement perdue. */
+
+@media (max-width: 560px) {
+  /* Un filtre par ligne, en pleine largeur.
+     Des pastilles à la taille de leur contenu avaient paru plus compactes ; elles se
+     chevauchaient sur iPhone — constaté en usage, « September 2026 » passant sous « All
+     categories ». Un champ dont la largeur dépend de son contenu dépend aussi du contrôle natif
+     que le système lui donne, et celui du mois n'est pas le même d'un moteur à l'autre. La
+     pleine largeur ne dépend de rien.
+     Le repli rend de toute façon cette hauteur sans conséquence : les champs ne sont dépliés que
+     lorsqu'on veut filtrer. */
+  .field { flex-basis: 100%; }
+  .filters .filter-button { width: 100%; }
+
+  /* Un champ de date à la taille de sa date.
+     Le contrôle natif étale son contenu sur toute la largeur qu'on lui donne : « septembre 2026 »
+     à gauche, l'icône du calendrier collée à droite, et deux cents pixels de vide entre les deux.
+     L'étiquette, elle, garde la pleine largeur — c'est ce qui rend la manœuvre sûre : le champ
+     rétréci n'a aucun voisin sur sa ligne avec qui se chevaucher, contrairement aux pastilles
+     essayées naguère.
+
+     `justify-self` est indispensable : dans une grille, un élément s'étire à sa colonne quelle
+     que soit sa largeur déclarée, et une largeur seule ne changeait rien.
+
+     Deux cent soixante-dix pixels et non la largeur intrinsèque du contrôle : réduit à son
+     contenu, il tombait à cent quatre-vingt-treize et paraissait rogné. Il s'agissait de retirer
+     le vide excédentaire, pas de serrer le champ. Le grand écran n'est pas concerné — cette
+     règle vit dans le palier des petits écrans, et le champ y garde la largeur de ses voisins. */
+  .field input[type="month"], .field input[type="date"] { width: min(270px, 100%); justify-self: start; }
+}
+
+.auth-footer { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 24px; border-top: 1px solid var(--line); padding-top: 16px; }
+.auth-footer a { display: inline-flex; align-items: center; min-height: 44px; font-size: .85rem; color: var(--ink-secondary); }
+:where(a, button, input, select, textarea, summary):focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* Espaces de travail : chiffres lisibles, actions secondaires repliées. */
+.workspace-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 12px; margin: 20px 0; }
+.workspace-summary article { display: grid; gap: 8px; min-width: 0; padding: 20px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.workspace-summary span, .workspace-summary small { color: var(--muted); font-size: .84rem; }
+.workspace-summary strong { font-size: clamp(1.25rem, 3vw, 1.8rem); overflow-wrap: anywhere; }
+.workspace-shortcuts { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+.workspace-shortcuts a, .budget-detail-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--green); font-size: .88rem; }
+.budget-edit summary { cursor: pointer; padding: 12px 0; min-height: 44px; }
+.budget-inline-form { display: flex; align-items: end; gap: 12px; margin-top: 12px; }
+.budget-inline-form input { width: 100%; min-width: 0; }
+.budget-inline-form .field { min-width: 0; flex: 1; }
+.budget-list { margin-bottom: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.budget-head, .budget-stats { flex-wrap: wrap; overflow-wrap: anywhere; }
+.add-budget-form { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) auto; }
+.transaction-day-total { display: flex; flex-wrap: wrap; justify-content: end; gap: 8px; }
+.subscription-name { color: var(--ink); text-underline-offset: 3px; }
+@media (max-width: 620px) {
+  .budget-list { grid-template-columns: minmax(0, 1fr); }
+  .budget-actions { flex-wrap: wrap; }
+  .budget-actions form { min-width: 0; flex-wrap: wrap; }
+  .budget-actions form:first-child { flex-basis: 100%; }
+  .budget-actions button { min-height: 44px; }
+  .add-budget-form { grid-template-columns: minmax(0, 1fr); }
+  .budget-inline-form { flex-wrap: wrap; }
+  .budget-inline-form button { min-height: 44px; }
+}
+
+.reclassify { flex-wrap: wrap; }
+.reclassify-scope { display: grid; gap: 6px; min-width: 0; color: var(--muted); font-size: .8rem; }
+.reclassify .select-shell { min-width: 0; max-width: 100%; }
+@media (max-width: 620px) { .reclassify > .field, .reclassify-scope { width: 100%; flex-basis: 100%; } }
+
+.subscription-totals { display: grid; gap: 6px; }
+@media (max-width: 620px) {
+  .workspace-summary { gap: 0; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+  .workspace-summary article { grid-template-columns: minmax(0, 1fr) auto; align-items: center; padding: 14px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; }
+  .workspace-summary article:last-child { border-bottom: 0; }
+  .workspace-summary strong { font-size: 1.05rem; }
+  .workspace-summary small { grid-column: 1 / -1; }
+}
+
+/* Parcours connectés : contrôles alignés et actions explicites. */
+.transaction-filters { align-items: flex-end; }
+.transaction-filters input, .transaction-filters select, .transaction-filters button { height: 44px; }
+.transaction-filters .field { flex: 1 1 160px; min-width: 0; }
+.reclassify { grid-template-columns: minmax(0, 1fr); align-items: stretch; }
+.classification-picker { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.classification-picker .field { min-width: 0; }
+.classification-picker select, .reclassify-scope select { width: 100%; min-height: 44px; }
+.reclassify > button { justify-self: start; min-height: 44px; }
+.assistant-tools { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; margin: 24px 0; }
+.assistant-tools > a { min-height: 44px; display: inline-flex; align-items: center; }
+.assistant-tools form { display: flex; align-items: flex-end; gap: 10px; flex: 1; min-width: min(100%, 260px); }
+.assistant-tools .field { flex: 1; min-width: 0; }
+.assistant-tools select { width: 100%; min-width: 0; min-height: 44px; }
+.assistant-tools button { min-height: 44px; }
+.profile-optional { border-top: 1px solid var(--line); padding-top: 8px; }
+.profile-optional summary { cursor: pointer; padding-block: 12px; min-height: 44px; font-size: .9rem; }
+.profile-optional .welcome-row { margin-top: 16px; }
+.profile-optional > .field { margin-top: 16px; }
+.welcome-step { color: var(--green); font-size: .8rem; margin-top: 20px; }
+.welcome-next { padding-left: 20px; color: var(--ink-secondary); font-size: .87rem; line-height: 1.6; margin-bottom: 24px; }
+.welcome-next li { margin-bottom: 6px; }
+.welcome-exit { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; }
+.welcome-exit a, .welcome-exit button { min-height: 44px; display: inline-flex; align-items: center; }
+.account-grid h2 { font-size: 1.2rem; margin: 0 0 14px; }
+.account-banks { list-style: none; padding: 0; }
+.account-banks li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; border-top: 1px solid var(--line); padding: 12px 0; font-size: .88rem; }
+.account-grid .detail-list dd { overflow-wrap: anywhere; min-width: 0; }
+.danger-zone summary { cursor: pointer; min-height: 44px; padding-block: 12px; }
+@media (max-width: 620px) {
+  .classification-picker { grid-template-columns: minmax(0, 1fr); }
+  .assistant-tools { align-items: stretch; gap: 12px; }
+  .assistant-tools form { flex-basis: 100%; }
+  .reclassify > button { width: 100%; }
+  .welcome-card { padding: 22px 18px; }
+  .welcome-shell { align-content: start; }
+  .account-grid .account-actions > a, .account-grid .account-actions form { flex: 1 1 100%; }
+  .account-grid .account-actions button { width: 100%; }
+  .dashboard-upcoming .upcoming-row { grid-template-columns: auto minmax(0, 1fr); }
+  .dashboard-upcoming .upcoming-row strong { grid-column: 2; }
+}
+
+.assistant-proposal { border: 1px solid var(--green-border); background: var(--green-soft); border-radius: var(--r-lg); padding: 20px; margin: 16px 0; }
+.assistant-proposal p { color: var(--ink-secondary); line-height: 1.5; }

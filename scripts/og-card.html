@@ -1,0 +1,45 @@
+<!doctype html>
+<!--
+  La source de public/og.png — l'image que voit quelqu'un à qui on envoie le lien.
+
+  Elle est rendue à la main plutôt que fabriquée par next/og : la génération à l'exécution
+  impose de charger les polices à chaque partage, et l'image ne change qu'avec la promesse
+  qu'elle porte, c'est-à-dire presque jamais. Un fichier statique de cinquante kilo-octets
+  coûte moins qu'une route.
+
+  Pour la refaire, après modification de ce fichier :
+    google-chrome --headless=new --remote-debugging-port=9222 --disable-gpu about:blank &
+    node scripts/render-png.mjs "file://$PWD/scripts/og-card.html" public/og.png 1200 630
+
+  Le format 1200×630 est celui qu'attendent les réseaux ; en dessous, l'aperçu est rogné.
+-->
+<html lang="fr"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600&display=swap">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1200px; height: 630px; background: #1b2a3f; color: #ffffff;
+         font-family: Inter, system-ui, sans-serif; display: grid; grid-template-rows: auto 1fr auto;
+         padding: 58px 68px; }
+  .marque { display: flex; align-items: center; gap: 20px; }
+  .brand { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 40px; letter-spacing: -.015em; }
+  h1 { font-size: 60px; line-height: 1.06; letter-spacing: -.032em; font-weight: 700; max-width: 19ch; align-self: center; }
+  h1 em { font-style: normal; color: #9dbce8; display: block; }
+  .foot { display: flex; align-items: center; gap: 30px; color: #b3bfd0; font-size: 23px; font-weight: 500; }
+  .foot span { display: flex; align-items: center; gap: 12px; }
+  .foot i { width: 9px; height: 9px; background: #7fa6dc; display: block; }
+</style></head><body>
+  <div class="marque">
+    <svg viewBox="0 0 64 64" width="62" height="62" aria-hidden="true">
+      <rect width="64" height="64" rx="7" fill="#f3f5f7"/>
+      <text x="14" y="61" font-family="'Source Serif 4',Georgia,serif" font-weight="600" font-size="92" fill="#1b3a63">c</text>
+      <rect x="45" y="33" width="10" height="10" fill="#4a7fc1"/>
+    </svg>
+    <span class="brand">clair.</span>
+  </div>
+  <h1>Votre banque vous dit ce que vous avez dépensé.<em>Clair vous dit ce que ça veut dire.</em></h1>
+  <div class="foot">
+    <span><i></i>9 banques françaises</span>
+    <span><i></i>Accès en lecture seule</span>
+    <span><i></i>Hébergé dans l’Union européenne</span>
+  </div>
+</body></html>

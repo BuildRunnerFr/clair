@@ -1,0 +1,20 @@
+<!--
+  La marque Clair — « le c hors cadre ».
+
+  L'initiale en Source Serif 4 semi-grasse, agrandie jusqu'à déborder du cadre à gauche, en haut
+  et en bas : on lit une forme avant de lire une lettre, et c'est ce recadrage qui distingue un
+  monogramme d'une initiale posée dans une boîte. Le point carré, seule couleur vive de
+  l'ensemble, reprend le point final du logotype « clair. » et se loge dans l'ouverture du c.
+
+  Fond clair et non sombre, à rebours de l'usage : sur un écran d'accueil saturé de tuiles
+  foncées, c'est ce qui la fait remarquer — et c'est ce que le produit est.
+
+  Le glyphe est ici un élément <text> : il suppose Source Serif 4 disponible, et retombe sur
+  Georgia sinon. Pour un usage définitif — impression, dépôt de marque — faire vectoriser le
+  contour par un outil de dessin ; la licence OFL de Source Serif 4 le permet.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <rect width="64" height="64" rx="7" fill="#f3f5f7"/>
+  <text x="14" y="61" font-family="Source Serif 4, Georgia, serif" font-weight="600" font-size="92" fill="#1b3a63">c</text>
+  <rect x="45" y="33" width="10" height="10" fill="#4a7fc1"/>
+</svg>
